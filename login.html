@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Food Delivery System - Register</title>
+    <title>Food Delivery System - Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <h1>Food Delivery System - Register</h1>
+    <h1>Food Delivery System - Login</h1>
     <form>
         <label for="account-type">Account Type:</label>
         <select id="account-type">
@@ -62,82 +62,61 @@
             <option value="delivery-personnel">Delivery Personnel</option>
         </select>
 
-        <!-- Customer Registration Fields -->
-        <div id="customer-registration" style="display: none;">
-            <label for="customer-name">Name:</label>
-            <input type="text" id="customer-name">
-
+        <!-- Customer Login Fields -->
+        <div id="customer-login" style="display: none;">
             <label for="customer-email">Email:</label>
             <input type="email" id="customer-email">
-
-            <label for="customer-phone">Phone Number:</label>
-            <input type="text" id="customer-phone">
 
             <label for="customer-password">Password:</label>
             <input type="password" id="customer-password">
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Login">
         </div>
 
-        <!-- Restaurant Registration Fields -->
-        <div id="restaurant-registration" style="display: none;">
-            <label for="restaurant-name">Restaurant Name:</label>
-            <input type="text" id="restaurant-name">
-
-            <label for="restaurant-address">Address:</label>
-            <input type="text" id="restaurant-address">
-
-            <label for="restaurant-phone">Phone Number:</label>
-            <input type="text" id="restaurant-phone">
-
+        <!-- Restaurant Login Fields -->
+        <div id="restaurant-login" style="display: none;">
             <label for="restaurant-email">Email:</label>
             <input type="email" id="restaurant-email">
 
             <label for="restaurant-password">Password:</label>
             <input type="password" id="restaurant-password">
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Login">
         </div>
 
-        <!-- Delivery Personnel Registration Fields -->
-        <div id="delivery-personnel-registration" style="display: none;">
-            <label for="delivery-personnel-name">Name:</label>
-            <input type="text" id="delivery-personnel-name">
-
+        <!-- Delivery Personnel Login Fields -->
+        <div id="delivery-personnel-login" style="display: none;">
             <label for="delivery-personnel-email">Email:</label>
             <input type="email" id="delivery-personnel-email">
-
-            <label for="delivery-personnel-phone">Phone Number:</label>
-            <input type="text" id="delivery-personnel-phone">
 
             <label for="delivery-personnel-password">Password:</label>
             <input type="password" id="delivery-personnel-password">
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Login">
         </div>
     </form>
 
     <script>
         var accountTypeSelect = document.getElementById('account-type');
-        var customerRegistrationDiv = document.getElementById('customer-registration');
-        var restaurantRegistrationDiv = document.getElementById('restaurant-registration');
-        var deliveryPersonnelRegistrationDiv = document.getElementById('delivery-personnel-registration');
+        var customerLoginDiv = document.getElementById('customer-login');
+        var restaurantLoginDiv = document.getElementById('restaurant-login');
+        var deliveryPersonnelLoginDiv = document.getElementById('delivery-personnel-login');
 
         accountTypeSelect.addEventListener('change', function () {
             var selectedOption = accountTypeSelect.value;
 
             if (selectedOption === "customer") {
-                customerRegistrationDiv.style.display = "block";
-                restaurantRegistrationDiv.style.display = "none";
-                deliveryPersonnelRegistrationDiv.style.display = "none";
+                customerLoginDiv.style.display = "block";
+                restaurantLoginDiv.style.display = "none";
+                deliveryPersonnelLoginDiv.style.display = "none";
             } else if (selectedOption === "restaurant") {
-                customerRegistrationDiv.style.display = "none";
-                restaurantRegistrationDiv.style.display = "block";
-                deliveryPersonnelRegistrationDiv.style.display = "none";
+                customerLoginDiv.style.display = "none";
+                restaurantLoginDiv.style.display = "block";
+                deliveryPersonnelLoginDiv.style.display = "none";
             } else if (selectedOption === "delivery-personnel") {
-                customerRegistrationDiv.style.display = "none";
-                restaurantRegistrationDiv.style.display = "none";
-                deliveryPersonnelRegistrationDiv.style.display = "block";
+                customerLoginDiv.style.display = "none";
+                restaurantLoginDiv.style.display = "none";
+                deliveryPersonnelLoginDiv.style.display = "block";
             }
         });
     </script>
