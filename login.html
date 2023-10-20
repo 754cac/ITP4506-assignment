@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Food Delivery System - Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
+            background: url(./images/foodBGI.webp);
         }
 
         form {
             width: 400px;
-            margin: 0 auto;
+            margin: 100px auto;
             padding: 20px;
-            background: #f7f7f7;
+            background: #408080;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
@@ -34,6 +31,7 @@
             margin-bottom: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            box-sizing: border-box;
         }
 
         input[type="submit"] {
@@ -53,73 +51,31 @@
 </head>
 
 <body>
-    <h1>Food Delivery System - Login</h1>
     <form>
-        <label for="account-type">Account Type:</label>
-        <select id="account-type">
-            <option value="customer">Customer</option>
-            <option value="restaurant">Restaurant</option>
-            <option value="delivery-personnel">Delivery Personnel</option>
-        </select>
-
-        <!-- Customer Login Fields -->
-        <div id="customer-login" style="display: none;">
-            <label for="customer-email">Email:</label>
-            <input type="email" id="customer-email">
-
-            <label for="customer-password">Password:</label>
-            <input type="password" id="customer-password">
-
-            <input type="submit" value="Login">
-        </div>
-
-        <!-- Restaurant Login Fields -->
-        <div id="restaurant-login" style="display: none;">
-            <label for="restaurant-email">Email:</label>
-            <input type="email" id="restaurant-email">
-
-            <label for="restaurant-password">Password:</label>
-            <input type="password" id="restaurant-password">
-
-            <input type="submit" value="Login">
-        </div>
-
-        <!-- Delivery Personnel Login Fields -->
-        <div id="delivery-personnel-login" style="display: none;">
-            <label for="delivery-personnel-email">Email:</label>
-            <input type="email" id="delivery-personnel-email">
-
-            <label for="delivery-personnel-password">Password:</label>
-            <input type="password" id="delivery-personnel-password">
-
-            <input type="submit" value="Login">
-        </div>
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <input type="submit" value="Login" onclick="switchPage()">
     </form>
-
     <script>
-        var accountTypeSelect = document.getElementById('account-type');
-        var customerLoginDiv = document.getElementById('customer-login');
-        var restaurantLoginDiv = document.getElementById('restaurant-login');
-        var deliveryPersonnelLoginDiv = document.getElementById('delivery-personnel-login');
-
-        accountTypeSelect.addEventListener('change', function () {
-            var selectedOption = accountTypeSelect.value;
-
-            if (selectedOption === "customer") {
-                customerLoginDiv.style.display = "block";
-                restaurantLoginDiv.style.display = "none";
-                deliveryPersonnelLoginDiv.style.display = "none";
-            } else if (selectedOption === "restaurant") {
-                customerLoginDiv.style.display = "none";
-                restaurantLoginDiv.style.display = "block";
-                deliveryPersonnelLoginDiv.style.display = "none";
-            } else if (selectedOption === "delivery-personnel") {
-                customerLoginDiv.style.display = "none";
-                restaurantLoginDiv.style.display = "none";
-                deliveryPersonnelLoginDiv.style.display = "block";
+        function switchPage() {
+            var email = document.getElementById("email").value;
+            if (email == 'a') {
+                // Redirect to a.html after successful login
+                window.location.href = "DeliveIndex.html";
+            } else if (email === 'b') {
+                // Redirect to b.html after successful login
+                window.location.href = "RestIndex.html";
+            } else if (email === 'c') {
+                // Redirect to c.html after successful login
+                window.location.href = "CustIndex.html";
+            } else {
+                // Handle invalid login credentials
+                alert("Invalid email or password. Please try again.");
             }
-        });
-    </script>
+        }</script>
 </body>
 
 </html>
