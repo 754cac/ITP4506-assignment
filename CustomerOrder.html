@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
   <script src="main.js" charset="utf-8"></script>
   <style>
     body {
@@ -18,6 +17,29 @@ header {
   padding: 20px;
 }
 
+.menu h2 {
+  margin-top: 0;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.menu-item {
+  border: 1px solid #990000;
+	border-radius: 5px;
+	background: #c23b3b;
+	padding: 10px 10px 10px 10px;
+	margin: 5px 5px 5px 5px;
+	width: 200px;
+	float:center;
+}
+
 .menu, .cart {
   float: left;
   width: 50%;
@@ -26,7 +48,8 @@ header {
 }
 
 .menu {
-  background-color: #fff;
+  background-color: #ffffff;
+  border: 10px;
 }
 
 .menu h2 {
@@ -42,16 +65,35 @@ header {
   margin-bottom: 20px;
 }
 
+.menu-item img {
+  border: 1px solid #990000;
+	border-radius: 5px;
+	background: #5c1414;
+	padding: 10px 10px 10px 10px;
+	margin: 5px 5px 5px 5px;
+	display:inline-flex;
+	height: 170px;
+	width: 170px;
+	float:center;
+}
+
+.menu-item h3 {
+  margin: 10px 0 5px;
+}
+
 .menu li h3 {
   margin: 0;
 }
 
 .menu li .price {
-  color: #888;
+  color: #818181;
 }
 
 .cart {
-  background-color: #f9f9f9;
+  background-color: #e6cbcb;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative; /* Add this line */
 }
 
 .cart h2 {
@@ -61,10 +103,12 @@ header {
 .cart ul {
   list-style-type: none;
   padding: 0;
+  margin: 0; /* Add this line */
 }
 
 .cart li {
   margin-bottom: 10px;
+  position: relative; /* Add this line */
 }
 
 button {
@@ -78,55 +122,81 @@ button {
 button:hover {
   background-color: #c00;
 }
+
+.delete-item {
+  position: relative;
+  float: center;
+  top: 0; /* Add this line */
+  right: 0; /* Add this line */
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-item:hover {
+  background-color: #c00;
+}
+
+.item-price {
+  text-align: right; /* Add this line */
+}
+
+.cart-item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-price {
+  text-align: center;
+  flex-basis: 60px;
+}
   </style>
   <title>Order Menu</title>
 </head>
 <body>
   <header>
-    <h1>TaiPoMarket - I Don't Care Noodles</h1>
+    <center><h1>YUMMY RESTAURANT</h1></center>
   </header>
 
+  <center><h2>Menu</h2></center>
   <div class="menu">
-    <center><h2>Menu</h2></center>
+    
         <div class="menu-item">
-          <img src="image/Siore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
+          <img src="image/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
           <h3>Singapore Stir-fried Noodles</h3>
-          <span class="price">$10.99</span>
+          <span class="price">$50</span>
           <button class="add-to-cart" onclick="addToCart('Singapore Stir-fried Noodles')">Add to Cart</button>
         </div><br>
         <div class="menu-item">
-          <img src="item2.jpg" alt="Item 2">
-          <h3>Item 2</h3>
-          <span class="price">$8.99</span>
-          <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+          <img src="image/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
+          <h3>Stir-fried Beef Noodles</h3>
+          <span class="price">$50</span>
+          <button class="add-to-cart" onclick="addToCart('Stir-fried Beef Noodles')">Add to Cart</button>
         </div><br>
         <div class="menu-item">
-            <img src="imagefried instant noodles with pork chop.jpg" alt="Stir-fried instant noodles with pork chop">
-            <h3>Item 2</h3>
-            <span class="price">$8.99</span>
+            <img src="image/Stir-fried instant noodles with pork chop.jpg" alt="Stir-fried instant noodles with pork chop">
+            <h3>Stir-fried instant noodles with pork chop</h3>
+            <span class="price">$50</span>
             <button class="add-to-cart" onclick="addToCart('Stir-fried instant noodles with pork chop')">Add to Cart</button>
           </div><br>
           <div class="menu-item">
-            <img src="item2.jpg" alt="Item 2">
-            <h3>Item 2</h3>
-            <span class="price">$8.99</span>
-            <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+            <img src="image/Braised E-Fu Noodles.jpg" alt="Item 2">
+            <h3>Braised E-Fu Noodles</h3>
+            <span class="price">$100</span>
+            <button class="add-to-cart" onclick="addToCart('Braised E-Fu Noodles')">Add to Cart</button>
           </div><br>
-          <div class="menu-item">
-            <img src="item2.jpg" alt="Item 5">
-            <h3>Item 2</h3>
-            <span class="price">$8.99</span>
-            <button class="add-to-cart" onclick="addToCart('Item 5')">Add to Cart</button>
-          </div><br>
-        <!-- Add more menu items here -->
       </div>
 
   <div class="cart">
-    <h2>Cart</h2>
+    <center><h2>Order list</h2></center>
     <ul id="cart-items">
     </ul>
     </div>
-    <button id="checkout" onclick="checkout()">Checkout</button>
+    <center><div id="total-price">Total Price: $0.00</div>
+<button id="checkout" onclick="checkout()">Checkout</button></center>
   </div>
 </body>
 </html>
