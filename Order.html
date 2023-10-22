@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Ordering Process</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="menuContainer">
+    <h1>Menu</h1>
+    <div id="menuItems">
+      <!-- Menu items dynamically generated using JavaScript -->
+    </div>
+    <button id="addToCartBtn">Add to Cart</button>
+  </div>
+
+  <div id="cartContainer">
+    <h1>Cart</h1>
+    <div id="cartItems">
+      <!-- Cart items dynamically generated using JavaScript -->
+    </div>
+    <button id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+
+  <div id="checkoutContainer">
+    <h1>Checkout</h1>
+    <form id="checkoutForm">
+      <input type="text" id="deliveryAddress" placeholder="Delivery Address" required>
+      <input type="text" id="contactInfo" placeholder="Contact Information" required>
+      <select id="paymentMethod" required>
+        <option value="" disabled selected>Select Payment Method</option>
+        <option value="creditCard">Credit Card</option>
+        <option value="paypal">PayPal</option>
+      </select>
+      <button type="submit">Confirm Order</button>
+    </form>
+  </div>
+
+  <div id="orderConfirmationContainer">
+    <h1>Order Confirmation</h1>
+    <p id="orderDetails"></p>
+    <p id="deliveryTime"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
