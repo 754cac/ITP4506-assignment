@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" charset="utf-8"></script>
+    <style>
+/* Basic styling */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column; /* Change flex-direction to column */
+  align-items: center; /* Center items horizontally */
+  width: 800px;
+  max-width: 100%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu-item img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.menu-item h3 {
+  margin: 0;
+}
+
+.menu-item p {
+  margin-top: 5px;
+  color: #777;
+}
+
+.menu-item .price {
+  font-weight: bold;
+}
+
+.add-to-cart {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#cart {
+  margin-top: 20px; /* Add margin-top to create space between the menu and cart */
+  border: 1px solid #333; /* Add border to the cart */
+  padding: 10px; /* Add padding to the cart */
+}
+
+#cart h2 {
+  color: #333;
+  margin-top: 0; /* Reset margin-top to remove extra space */
+}
+
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#cart-items li {
+  margin-bottom: 10px;
+}
+
+#checkout {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="menu">
+        <center><h2>Menu</h2></center>
+        <div class="menu-item">
+          <img src="item1.jpg" alt="Item 1">
+          <h3>Item 1</h3>
+          <p>Description of Item 1.</p>
+          <span class="price">$10.99</span>
+          <button class="add-to-cart" onclick="addToCart('Item 1')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+          <img src="item2.jpg" alt="Item 2">
+          <h3>Item 2</h3>
+          <p>Description of Item 2.</p>
+          <span class="price">$8.99</span>
+          <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="item2.jpg" alt="Item 2">
+            <h3>Item 2</h3>
+            <p>Description of Item 2.</p>
+            <span class="price">$8.99</span>
+            <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+          </div>
+          <div class="menu-item">
+            <img src="item2.jpg" alt="Item 2">
+            <h3>Item 2</h3>
+            <p>Description of Item 2.</p>
+            <span class="price">$8.99</span>
+            <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+          </div>
+          <div class="menu-item">
+            <img src="item2.jpg" alt="Item 5">
+            <h3>Item 2</h3>
+            <p>Description of Item 2.</p>
+            <span class="price">$8.99</span>
+            <button class="add-to-cart" onclick="addToCart('Item 5')">Add to Cart</button>
+          </div>
+        <!-- Add more menu items here -->
+      </div>
+      <Top><center><h2>Cart</h2></center>
+      <div id="cart">
+        <ul id="cart-items">
+        </ul>
+        <button id="checkout" onclick="checkout()">Checkout</button>
+      </div>
+</body>
+</html>
