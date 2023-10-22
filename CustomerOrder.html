@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" charset="utf-8"></script>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #f00;
+  color: #fff;
+  padding: 20px;
+}
+
+.menu, .cart {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.menu {
+  background-color: #fff;
+}
+
+.menu h2 {
+  margin-top: 0;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 20px;
+}
+
+.menu li h3 {
+  margin: 0;
+}
+
+.menu li .price {
+  color: #888;
+}
+
+.cart {
+  background-color: #f9f9f9;
+}
+
+.cart h2 {
+  margin-top: 0;
+}
+
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart li {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c00;
+}
+  </style>
+  <title>Order Menu</title>
+</head>
+<body>
+  <header>
+    <h1>TaiPoMarket - I Don't Care Noodles</h1>
+  </header>
+
+  <div class="menu">
+    <center><h2>Menu</h2></center>
+        <div class="menu-item">
+          <img src="image/Siore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
+          <h3>Singapore Stir-fried Noodles</h3>
+          <span class="price">$10.99</span>
+          <button class="add-to-cart" onclick="addToCart('Singapore Stir-fried Noodles')">Add to Cart</button>
+        </div><br>
+        <div class="menu-item">
+          <img src="item2.jpg" alt="Item 2">
+          <h3>Item 2</h3>
+          <span class="price">$8.99</span>
+          <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+        </div><br>
+        <div class="menu-item">
+            <img src="imagefried instant noodles with pork chop.jpg" alt="Stir-fried instant noodles with pork chop">
+            <h3>Item 2</h3>
+            <span class="price">$8.99</span>
+            <button class="add-to-cart" onclick="addToCart('Stir-fried instant noodles with pork chop')">Add to Cart</button>
+          </div><br>
+          <div class="menu-item">
+            <img src="item2.jpg" alt="Item 2">
+            <h3>Item 2</h3>
+            <span class="price">$8.99</span>
+            <button class="add-to-cart" onclick="addToCart('Item 2')">Add to Cart</button>
+          </div><br>
+          <div class="menu-item">
+            <img src="item2.jpg" alt="Item 5">
+            <h3>Item 2</h3>
+            <span class="price">$8.99</span>
+            <button class="add-to-cart" onclick="addToCart('Item 5')">Add to Cart</button>
+          </div><br>
+        <!-- Add more menu items here -->
+      </div>
+
+  <div class="cart">
+    <h2>Cart</h2>
+    <ul>
+      <!-- Cart items dynamically populated -->
+      <li>三餸一麵 - $67.00</li>
+      <!-- Add more cart items here -->
+    </ul>
+    <button>Checkout</button>
+  </div>
+</body>
+</html>
