@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* .tab-header {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+ */
+/* .tab-header button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab-header button:hover {
+    background-color: #ddd;
+}
+
+.tab-header button.active {
+    background-color: #ccc;
+}
+ */
+/* 
+.tab-header {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.tab-header li {
+    margin-right: 10px;
+} */
+
+.tabcontent {
+    display: none;
+    border: solid 1px;
+    background-color: #ff8040;
+    justify-content: center;
+    margin: 0px auto;
+    width: 40%;
+}
+
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+
+
+
+/* Button styles */
+.tablinks {
+    background-color: #4CAF50;
+    /* Green background color */
+    border: none;
+    /* Remove border */
+    color: #000000;
+    /* Text color */
+    padding: 10px 20px;
+    /* Add padding */
+    font-size: 16px;
+    /* Increase font size */
+    cursor: pointer;
+    /* Add cursor pointer */
+    transition: background-color 0.3s;
+    /* Add smooth transition */
+}
+
+/* Button hover effect */
+.tablinks:hover {
+    background-color: #45a049;
+    /* Dark green background color */
+}
+
+/* Button active state */
+.tablinks.active {
+    background-color: #008CBA;
+    /* Blue background color */
+}
