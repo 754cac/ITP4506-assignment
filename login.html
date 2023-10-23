@@ -39,25 +39,53 @@
         <input type="email" id="email">
         <label for="password">Password:</label>
         <input type="password" id="password">
-        <input type="submit" value="Login" onclick="switchPage()">
+        <a href="login.html">Forgot your password</a>
+        <input type="submit" value="Login" onclick="login(event)">
+        <p id="error-message" style="display: none; color: red;"></p>
     </form>
     <script>
-        function switchPage() {
+        var incorrectAttempts = 0;
+
+        function login(event) {
+            event.preventDefault(); // Prevents the form submission from causing a page reload
+
+            // Retrieve the entered email and password values from the form
             var email = document.getElementById("email").value;
-            if (email == 'a') {
-                // Redirect to a.html after successful login
-                window.location.href = "DeliveIndex.html";
-            } else if (email === 'b') {
-                // Redirect to b.html after successful login
-                window.location.href = "RestIndex.html";
-            } else if (email === 'c') {
-                // Redirect to c.html after successful login
-                window.location.href = "CustIndex.html";
+            var password = document.getElementById("password").value;
+
+            // Perform validation and login logic
+            if (email === "" || password === "") {
+                displayErrorMessage("Please enter both email and password.");
             } else {
-                // Handle invalid login credentials
-                alert("Invalid email or password. Please try again.");
+                if (email === 'a') {
+                    // Redirect to a.html after successful login
+                    window.location.href = "registerCustomer.html";
+                } else if (email === 'b') {
+                    // Redirect to b.html after successful login
+                    window.location.href = "RestIndex.html";
+                } else if (email === 'c') {
+                    // Redirect to c.html after successful login
+                    window.location.href = "CustIndex.html";
+                } else {
+                    incorrectAttempts++;
+
+                    if (incorrectAttempts > 4) {
+                        displayErrorMessage("Too many incorrect attempts. Your account is blocked.");
+                        document.getElementById("email").disabled = true;
+                        document.getElementById("password").disabled = true;
+                    } else {
+                        displayErrorMessage("Invalid email or password. Attempt: " + incorrectAttempts);
+                    }
+                }
             }
-        }</script>
+        }
+
+        function displayErrorMessage(message) {
+            var errorMessage = document.getElementById("error-message");
+            errorMessage.textContent = message;
+            errorMessage.style.display = "block";
+        }
+    </script>
 </body>
 
 </html>

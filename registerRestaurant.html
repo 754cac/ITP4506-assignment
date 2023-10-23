@@ -33,6 +33,7 @@
         <div id="content">
             <form>
                 <h2>Restaurant Registration</h2>
+                <div id="error-message" style="color: red;"></div>
                 <label for="restaurant-name">Restaurant Name:</label>
                 <input type="text" id="restaurant-name">
 
@@ -45,13 +46,51 @@
                 <label for="restaurant-email">Email:</label>
                 <input type="email" id="restaurant-email">
 
-                <label for="restaurant-password">Password:</label>
-                <input type="password" id="restaurant-password">
+                <label for="password">Password:</label>
+                <input type="password" id="password">
 
-                <input type="submit" value="Register">
+                <label for="repeat-password">Repeat Password:</label>
+                <input type="password" id="repeat-password">
+                <div class="checkbox-container">
+                    <input type="checkbox" name="termAgree" id="termAgree" style="margin-right: 5px;">
+                    <label for="termAgree">I agree to the data and privacy terms.</label>
+                </div>
+                <input type="submit" value="Register" onclick="toLogin()">
             </form>
         </div>
     </div>
+    <script>
+        function validateRegistrationForm() {
+            var name = document.getElementById("customer-name").value;
+            var email = document.getElementById("customer-email").value;
+            var phone = document.getElementById("customer-phone").value;
+            var password = document.getElementById("password").value;
+            var repeatPassword = document.getElementById("repeat-password").value;
+            var termAgree = document.getElementById("termAgree").checked;
+            var errorMessage = document.getElementById("error-message");
+            errorMessage.innerHTML = ""; // Clear any existing error message
+
+            if (name === "" || email === "" || phone === "" || password === "" || repeatPassword === "") {
+                errorMessage.innerHTML = "Please fill in all fields.";
+                return false;
+            }
+            if (!termAgree) {
+                errorMessage.innerHTML = "Please agree user terms.";
+                return false;
+            }
+            if (password !== repeatPassword) {
+                errorMessage.innerHTML = "Passwords do not match.";
+                return false;
+            }
+            return true;
+        }
+        function toLogin(status, event) {
+            status = validateRegistrationForm();
+            event.preventDefault();
+            if (status)
+                window.location.href = "login.html";
+        }
+    </script>
 </body>
 
 </html>
