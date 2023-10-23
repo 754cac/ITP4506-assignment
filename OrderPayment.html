@@ -41,7 +41,7 @@
 
     input[type="text"],
     select {
-      width: 100%;
+      width: 90%;
       padding: 5px;
     }
 
@@ -49,6 +49,10 @@
       display: none;
     }
 
+  .order-summary {
+    position: absolute;
+    height: 250px;
+  }
   .order-summary {
     background-color: #e6cbcb;
     padding: 20px;
@@ -88,6 +92,69 @@
     button:hover {
       background-color: #c00;
     }
+    
+    .menu-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .menu-item:hover{
+      background: #8f2e2e;
+    }
+
+    .menu-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+
+    .card-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .card-item:hover{
+      background: #8f2e2e;
+    }
+
+    .card-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .delivery-address {
+      flex: 1;
+      height: 590px; 
+      overflow-y: scroll;
+    }
+    
+    .cvv {
+      margin-right: 30px;
+      width: 0px;
+      flex: 1;
+    }
+
+    .expiration-date{
+      width: 70px;
+      flex: 1;
+    }
+
+  .input-container {
+    display: flex;
+  }
+
+  .input-container input {
+    flex: 1;
+    margin-right: 0px;
+  }
   </style>
   <title>Order Confirmation</title>
 </head>
@@ -107,16 +174,27 @@
         <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
         <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
       </ul>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      
       <hr>
       <center><div id="total-price">Total price: $250</div></center>
     </div>
 
     <div class="delivery-address">
       <h3>Delivery Address</h3>
-      <label for="address">Address:</label>
+      <div class="select delivery-address">
+        <center><h4>Address Selection</h4></center>
+        <div class="menu-item" onclick="selectMenuItem(this)">flat 1424, 14/F Block 1<br>
+          WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+          NT<br></div>
+        <div class="menu-item" onclick="selectMenuItem(this)">flat 332, 3/F Block C<br>
+          Chung Hing Commercial Building, Connaught Road 62-63,Central<br>
+          HK<br></div>
+        
+        <br>
+        <br>
+      <label for="address">Other address</label>
       <input type="text" id="address" name="address" placeholder="flat, floor , block">
-      <input type="text" id="street" name="street" placeholder="building, street">
+      <input type="text" id="street" name="street" placeholder="building, street, district"><br>
       <input type="radio" id="nt" name="area" value="NT">NT
       <input type="radio" id="kln" name="area" value="KLN">KLN
       <input type="radio" id="hk" name="area" value="HK">HK<br>
@@ -131,57 +209,52 @@
 
       <div class="credit-card-form">
         <h3>Credit Card Details</h3>
+        <div class="card-item" onclick="selectCardItem(this)">****-****-****-0067<br>
+          HUNG YAN YI<br>
+          12/27<br></div>
+          <div class="card-item" onclick="selectCardItem(this)">****-****-****-0135<br>
+            HUNG YAN YI<br>
+            12/25<br></div>
+        <h4>Other credit card</h4>
         <label for="card-number">Card Number:</label>
         <input type="text" id="card-number" name="card-number" placeholder="Enter your card number">
 
         <label for="card-holder">Card Holder:</label>
         <input type="text" id="card-holder" name="card-holder" placeholder="Enter the card holder's name">
-
-        <label for="expiration-date">Expiration Date:</label>
-        <input type="text" id="expiration-date" name="expiration-date" placeholder="Enter the expiration date (MM/YYYY)">
-
-        <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" name="cvv" placeholder="Enter the CVV">     
+        <div class="input-container">
+          <div class="expiration-date">
+            <label for="Expiration Date">EXP:</label>
+            <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY">
+          </div>
+        
+          <div class="cvv">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="CVV">
+          </div>
+        </div> 
       </div>
-      <hr>
-      <button onclick="confirmOrder()" >Confirm Order</button>
-    </div> 
+    </div> <center><a href="OrderConfirmed.html"><button onclick="confirmOrder()" >Confirm Order</button></a></center>
+    
   </div>
+  
   
 
   <script>
-    // Retrieve the cart items and total price from the previous page
-    var cartItems = document.getElementById("cart-items").innerHTML;
-    var totalPrice = document.getElementById("total-price").textContent;
 
-    // Populate the cart items and total price in the order confirmation page
-    document.getElementById("cart-items").innerHTML = cartItems;
-    document.getElementById("total-price").textContent = totalPrice;
+function selectMenuItem(item) {
+      var menuItems = document.getElementsByClassName("menu-item");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
 
-    // Function to handle the order confirmation
-    function confirmOrder() {
-      var address = document.getElementById("address").value;
-      var street = document.getElementById("street").value;
-      var area = document.querySelector('input[name="area"]:checked').value;
-      var rememberAddress = document.getElementById("remember").checked ? "Yes" : "No";
-      var paymentMethod = document.getElementById("payment").value;
-
-      var cardNumber = document.getElementById("card-number").value;
-      var cardHolder = document.getElementById("card-holder").value;
-      var expirationDate = document.getElementById("expiration-date").value;
-      var cvv = document.getElementById("cvv").value;
-
-      // Here, you can perform further actions like submitting the order details to a server or displaying a confirmation message
-
-      // For this example, we'll log the order details to the console
-      console.log("Order Confirmation");
-      console.log("Delivery Address: " + address + ", " + street + ", " + area);
-      console.log("Remember Address: " + rememberAddress);
-      console.log("Payment Method: " + paymentMethod);
-      console.log("Card Number: " + cardNumber);
-      console.log("Card Holder: " + cardHolder);
-      console.log("Expiration Date: " + expirationDate);
-      console.log("CVV: " + cvv);
+    function selectCardItem(item) {
+      var cardItems = document.getElementsByClassName("card-item");
+      for (var i = 0; i < cardItems.length; i++) {
+        cardItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
     }
 
     // Function to toggle the credit card form based on the selected payment method
