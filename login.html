@@ -57,14 +57,11 @@
             if (email === "" || password === "") {
                 displayErrorMessage("Please enter both email and password.");
             } else {
-                if (email === 'a') {
-                    // Redirect to a.html after successful login
-                    window.location.href = "registerCustomer.html";
-                } else if (email === 'b') {
-                    // Redirect to b.html after successful login
+                if (email === 'customer@a.com' || password === 'customer@a.com') {
+                    window.location.href = "test.html";
+                } else if (email === 'restaurant@a.com' || password === 'restaurant@a.com') {
                     window.location.href = "RestIndex.html";
-                } else if (email === 'c') {
-                    // Redirect to c.html after successful login
+                } else if (email === 'delivery@a.com' || password === 'delivery@a.com') {
                     window.location.href = "CustIndex.html";
                 } else {
                     incorrectAttempts++;
