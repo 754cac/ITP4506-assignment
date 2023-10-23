@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    header {
+      background-color: #f00;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .back-to-home {
+      margin-top: 20px;
+    }
+
+    .order-summary {
+    background-color: #e6cbcb;
+    padding: 20px;
+    margin: 0% 25%;
+    text-align: left;
+    width: 50%;
+    box-sizing: border-box;
+    position: absolute; 
+  }
+
+  .order-summary h2 {
+     margin-top: 0;
+  }
+
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+  }
+
+  .order-summary li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.item-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <center><h1>YUMMY RESTAURANT</h1></center>
+  </header>
+  <h1>Order Confirmed</h1>
+  <p>Thank you for your order! Your payment has been successfully processed.</p>
+  <p>An email confirmation has been sent to your registered email address.</p>
+  <div class="back-to-home">
+    <a href="CustomerHome.html"><button>Back to home page</button></a>
+    <br><br>
+    <div class="order-summary">
+      
+      <center><h3>Order Summary</h3></center>
+      <hr>
+      <h3>Address:</h3>
+      flat 1424, 14/F Block 1<br>
+      WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+      NT
+      <hr>
+      <ul id="cart-items">
+        <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
+        <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
+        <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
+        <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
+      </ul>
+      <br><br><br><br><br><br><br><br><br>
+      <hr>
+      <center><div id="total-price">Total price: $250</div></center>
+    </div>
+  </div>
+</body>
+</html>
