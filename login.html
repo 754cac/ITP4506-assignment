@@ -4,6 +4,8 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="jslib/jquery-1.6.js"></script>
+    <script src="path_to/jquery.cookie.js"></script>
     <style>
         form {
             margin: 100px auto;
@@ -29,7 +31,10 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="login.html" class="active">Login</a></li>
+            <li><a href="login.html" id="login" class="active">Login</a></li>
+            <li>
+                <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+            </li>
         </ul>
     </nav>
 
@@ -41,9 +46,21 @@
         <input type="password" id="password">
         <a href="login.html">Forgot your password</a>
         <input type="submit" value="Login" onclick="login(event)">
+        <a href="registerCustomer.html" style="text-align: right;">Don't have account? Register Now</a>
         <p id="error-message" style="display: none; color: red;"></p>
     </form>
     <script>
+        function getCookie(index) {
+            // Display the value of the test cookie using alert
+            var cookies = document.cookie.split("; ");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].split("=");
+                if (cookie[0] === index) {
+                    alert(index + " value: " + cookie[1]);
+                    return cookie[0];
+                }
+            }
+        }
         var incorrectAttempts = 0;
 
         function login(event) {
@@ -52,20 +69,24 @@
             // Retrieve the entered email and password values from the form
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
-
             // Perform validation and login logic
             if (email === "" || password === "") {
                 displayErrorMessage("Please enter both email and password.");
             } else {
                 if (email === 'customer@a.com' || password === 'customer@a.com') {
+                    document.cookie = "accountType=customer";
                     window.location.href = "test.html";
-                } else if (email === 'restaurant@a.com' || password === 'restaurant@a.com') {
-                    window.location.href = "RestIndex.html";
-                } else if (email === 'delivery@a.com' || password === 'delivery@a.com') {
+                } else if (email === 'restaurant@a.com' && password === 'restaurant@a.com') {
+                    document.cookie = "accountType=restaurant";
+                    window.location.href = "registerDelivery.html";
+                } else if (email === 'delivery@a.com' && password === 'delivery@a.com') {
+                    document.cookie = "accountType=delivery";
                     window.location.href = "CustIndex.html";
+                } else if (email === 'operator@a.com' && password === 'operator@a.com') {
+                    document.cookie = "accountType=operator";
+                    window.location.href = "registerRestaurant.html";
                 } else {
                     incorrectAttempts++;
-
                     if (incorrectAttempts > 4) {
                         displayErrorMessage("Too many incorrect attempts. Your account is blocked.");
                         document.getElementById("email").disabled = true;

@@ -83,6 +83,14 @@ nav ul li a.active {
     background-color: #008CBA;
 }
 
+nav ul li input {
+    display: none;
+    padding: 8px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #888888;
+}
+
 nav ul li {
     position: relative;
 }
