@@ -4,6 +4,9 @@
 <head>
     <title>Delivery Personal Register</title>
     <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="jslib/jquery-1.6.js"></script>
+    <script src="path_to/jquery.cookie.js"></script>
+    <script src="main.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -14,17 +17,21 @@
                 <a class="active">Register</a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="registerCustomer.html" class="formLinks">Customer</a>
+                        <a href="registerCustomer.html" id="customerRef" class="formLinks">Customer</a>
                     </li>
                     <li>
-                        <a href="registerRestaurant.html" class="formLinks">Restaurant</a>
+                        <a href="registerRestaurant.html" id="restaurantRef" class="formLinks">Restaurant</a>
                     </li>
                     <li>
-                        <a href="registerDelivery.html" class="active">Delivery Personnel</a>
+                        <a href="registerDelivery.html" id="deliveryRef" class="active">Delivery Personnel</a>
                     </li>
                 </ul>
             </li>
             <li><a href="login.html">Login</a></li>
+            <li>
+                <input type="button" value="Logout" name="logout" id="logout" onclick="toLogin()"
+                    style="display: block;">
+            </li>
         </ul>
     </nav>
 
@@ -86,6 +93,18 @@
             if (status)
                 window.location.href = "login.html";
         }
+        function toLogin() {
+            window.location.href = "login.html";
+        }// Function to get a cookie by index
+        $(document).ready(function () {
+            var accountType = getCookie("accountType");
+            $('#customerRef').parent().hide();
+            $('#restaurantRef').parent().hide();
+            if (accountType == "restauarant") {
+                alert("unauthorized access");
+                window.location.href = "login.html";
+            }
+        });
     </script>
 </body>
 

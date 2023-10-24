@@ -4,6 +4,9 @@
 <head>
     <title>Restaurant Register</title>
     <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="jslib/jquery-1.6.js"></script>
+    <script src="path_to/jquery.cookie.js"></script>
+    <script src="main.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -14,17 +17,20 @@
                 <a class="active">Register</a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="registerCustomer.html" class="formLinks">Customer</a>
+                        <a href="registerCustomer.html" id="customerRef" class="formLinks">Customer</a>
                     </li>
                     <li>
-                        <a href="registerRestaurant.html" class="active">Restaurant</a>
+                        <a href="registerRestaurant.html" id="restaurantRef" class="active">Restaurant</a>
                     </li>
                     <li>
-                        <a href="registerDelivery.html" class="formLinks">Delivery Personnel</a>
+                        <a href="registerDelivery.html" id="deliveryRef" class="formLinks">Delivery Personnel</a>
                     </li>
                 </ul>
             </li>
             <li><a href="login.html">Login</a></li>
+            <li>
+                <input type="button" value="Logout" name="logout" id="logout" style="display: block;">
+            </li>
         </ul>
     </nav>
 
@@ -90,6 +96,31 @@
             if (status)
                 window.location.href = "login.html";
         }
+        function toLogin() {
+
+            window.location.href = "login.html";
+        }
+        $(document).ready(function () {
+            var accountType = getCookie("accountType");
+            $('#customerRef').parent().hide();
+            $('#deliveryRef').parent().hide();
+            if (accountType == "operator") {
+                alert("unauthorized access");
+                window.location.href = "login.html";
+            }
+
+
+            $("#logout").click(function () {
+                var cookies = document.cookie.split("; ");
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i];
+                    var eqPos = cookie.indexOf("=");
+                    var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+                }
+                window.location.href = "login.html";
+            })
+        });
     </script>
 </body>
 

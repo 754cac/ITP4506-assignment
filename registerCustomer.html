@@ -4,6 +4,9 @@
 <head>
     <title>Customer Register</title>
     <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="jslib/jquery-1.6.js"></script>
+    <script src="path_to/jquery.cookie.js"></script>
+    <script src="main.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -14,13 +17,13 @@
                 <a class="active">Register</a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="registerCustomer.html" class="active">Customer</a>
+                        <a href="registerCustomer.html" id="customerRef" class="active">Customer</a>
                     </li>
                     <li>
-                        <a href="registerRestaurant.html" class="formLinks">Restaurant</a>
+                        <a href="registerRestaurant.html" id="restaurantRef" class="formLinks">Restaurant</a>
                     </li>
                     <li>
-                        <a href="registerDelivery.html" class="formLinks">Delivery Personnel</a>
+                        <a href="registerDelivery.html" id="deliveryRef" class="formLinks">Delivery Personnel</a>
                     </li>
                 </ul>
             </li>
@@ -88,6 +91,11 @@
             if (status)
                 window.location.href = "login.html";
         }
+        $(document).ready(function () {
+            var accountType = getCookie("accountType");
+            $('#deliveryRef').parent().hide();
+            $('#restaurantRef').parent().hide();
+        });
     </script>
 </body>
 

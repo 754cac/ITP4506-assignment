@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="register.css">
     <script src="jslib/jquery-1.6.js"></script>
     <script src="path_to/jquery.cookie.js"></script>
+    <script src="main.js" charset="utf-8"></script>
     <style>
         form {
             margin: 100px auto;
@@ -21,13 +22,13 @@
                 <a href="#">Register</a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="registerCustomer.html" class="formLinks">Customer</a>
+                        <a href="registerCustomer.html" id="customerRef" class="formLinks">Customer</a>
                     </li>
                     <li>
-                        <a href="registerRestaurant.html" class="formLinks">Restaurant</a>
+                        <a href="registerRestaurant.html" id="restaurantRef" class="formLinks">Restaurant</a>
                     </li>
                     <li>
-                        <a href="registerDelivery.html" class="formLinks">Delivery Personnel</a>
+                        <a href="registerDelivery.html" id="deliveryRef" class="formLinks">Delivery Personnel</a>
                     </li>
                 </ul>
             </li>
@@ -50,17 +51,7 @@
         <p id="error-message" style="display: none; color: red;"></p>
     </form>
     <script>
-        function getCookie(index) {
-            // Display the value of the test cookie using alert
-            var cookies = document.cookie.split("; ");
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].split("=");
-                if (cookie[0] === index) {
-                    alert(index + " value: " + cookie[1]);
-                    return cookie[0];
-                }
-            }
-        }
+
         var incorrectAttempts = 0;
 
         function login(event) {
@@ -103,6 +94,11 @@
             errorMessage.textContent = message;
             errorMessage.style.display = "block";
         }
+        $(document).ready(function () {
+            var accountType = getCookie("accountType");
+            $('#deliveryRef').parent().hide();
+            $('#restaurantRef').parent().hide();
+        });
     </script>
 </body>
 

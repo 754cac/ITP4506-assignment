@@ -2,7 +2,7 @@
 var totalPrice = 0;
 
 function addToCart(itemName) {
-    // Retrieve the price of the item
+  // Retrieve the price of the item
   var menuItems = document.querySelectorAll('.menu-item');
   var price;
 
@@ -45,15 +45,15 @@ function addToCart(itemName) {
     }
   });
 
-// Create a div to hold the cart item details (name and price)
-var cartItemDetails = document.createElement("div");
-cartItemDetails.classList.add("cart-item-details");
-cartItemDetails.textContent = itemName;
+  // Create a div to hold the cart item details (name and price)
+  var cartItemDetails = document.createElement("div");
+  cartItemDetails.classList.add("cart-item-details");
+  cartItemDetails.textContent = itemName;
 
-// Append the cart item details to the cart item
-cartItem.appendChild(cartItemDetails);
-cartItemDetails.appendChild(priceSpan);
-cartItem.appendChild(deleteButton);
+  // Append the cart item details to the cart item
+  cartItem.appendChild(cartItemDetails);
+  cartItemDetails.appendChild(priceSpan);
+  cartItem.appendChild(deleteButton);
 
   // Append the cart item to the cart
   var cartItems = document.getElementById("cart-items");
@@ -71,4 +71,16 @@ cartItem.appendChild(deleteButton);
 function updateTotalPrice() {
   var totalPriceElement = document.getElementById("total-price");
   totalPriceElement.textContent = "Total Price: $" + totalPrice.toFixed(2);
+}
+
+function getCookie(index) {
+  // Display the value of the test cookie using alert
+  var cookies = document.cookie.split("; ");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].split("=");
+    if (cookie[0] === index) {
+      //  alert(index + " value: " + cookie[1]);
+      return cookie[0];
+    }
+  }
 }
