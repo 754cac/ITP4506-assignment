@@ -59,6 +59,12 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
+header {
+    background-color: rgb(168, 40, 36);
+    color: #bdb2b2;
+    padding: 20px;
+  }
+
 
 nav {
     /* 
@@ -88,7 +94,7 @@ nav ul li input {
     padding: 8px;
     text-decoration: none;
     color: #000000;
-    background-color: #888888;
+    background-color: #7a2828;
 }
 
 nav ul li {
@@ -100,6 +106,11 @@ nav ul li a {
     padding: 8px;
     text-decoration: none;
     color: #000000;
+}
+
+.nav ul li a:hover {
+	background-color: #c50e0e;
+	color: rgb(146, 74, 74);
 }
 
 .dropdown-menu {
@@ -131,4 +142,23 @@ nav ul li a {
     color: #000000;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+.whitebg{
+    background-color: #e9b5b5;
+    opacity: .8;
+  }
+
+.footer {
+	background-color: #333;
+	text-align: center;
+	color: white;
+	padding: 15px;
+	max-width: 1425px;
+	margin: auto;
+	overflow: hidden;
+	box-sizing: border-box;
+  	order: 5;
+	font-size: 20px;
+	width: 100%;
 }

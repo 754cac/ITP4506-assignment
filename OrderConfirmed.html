@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="register.css">
   <title>Order Confirmed</title>
   <style>
     body {
@@ -10,11 +11,6 @@
       padding: 20px;
       font-family: Arial, sans-serif;
       text-align: center;
-    }
-    header {
-      background-color: #f00;
-      color: #fff;
-      padding: 20px;
     }
 
     h1 {
@@ -30,37 +26,41 @@
     }
 
     .order-summary {
-    background-color: #e6cbcb;
-    padding: 20px;
-    margin: 0% 25%;
-    text-align: left;
-    width: 50%;
-    box-sizing: border-box;
-    position: absolute; 
-  }
+      background-color: #e6cbcb;
+      padding: 20px;
+      margin: 0% 25%;
+      text-align: left;
+      width: 50%;
+      box-sizing: border-box;
+      position: relative; 
+    }
+    .whitebg{
+      background-color: #e9b5b5;
+      opacity: .8;
+    }
 
-  .order-summary h2 {
-     margin-top: 0;
-  }
+    .order-summary h2 {
+      margin-top: 0;
+    }
 
-  .order-summary ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0; 
-  }
+    .order-summary ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; 
+    }
 
-  .order-summary li {
-  margin-bottom: 10px;
-  position: relative;
-}
+    .order-summary li {
+      margin-bottom: 10px;
+      position: relative;
+    }
 
-.item-price {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+    .item-price {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 
-button {
+    button {
       background-color: #f00;
       color: #fff;
       border: none;
@@ -71,20 +71,42 @@ button {
     button:hover {
       background-color: #c00;
     }
+
+    header {
+      background-color: rgb(168, 40, 36);
+      color: #bdb2b2;
+      padding: 20px;
+    }
+
+    .footer {
+      background-color: #333;
+      text-align: center;
+      color: white;
+      padding: 15px;
+      max-width: 1425px;
+      margin: auto;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-size: 20px;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+    }
   </style>
 </head>
 <body>
   <header>
     <center><h1>YUMMY RESTAURANT</h1></center>
   </header>
+  <div class="whitebg">
   <h1>Order Confirmed</h1>
   <p>Thank you for your order! Your payment has been successfully processed.</p>
   <p>An email confirmation has been sent to your registered email address.</p>
-  <div class="back-to-home">
-    <a href="CustomerHome.html"><button>Back to home page</button></a>
+  <br><br>
+</div><br>
+  <a href="CustomerHome.html"><button>Back to home page</button></a>
     <br><br>
     <div class="order-summary">
-      
       <center><h3>Order Summary</h3></center>
       <hr>
       <h3>Address:</h3>
@@ -99,10 +121,13 @@ button {
         <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
         <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
       </ul>
-      <br><br><br><br><br><br><br><br><br>
+      <br><br><br>
       <hr>
       <center><div id="total-price">Total price: $250</div></center>
     </div>
+  <div class="footer">
+    <p>Copyright @2023 | Yummy Restaurant</p>
+    <p>All rights reserved.</p>
   </div>
 </body>
 </html>
