@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="register.css">
   <script src="main.js" charset="utf-8"></script>
   <style>
     body {
@@ -42,7 +43,7 @@
 }
 
 .menu {
-  background-color: #ffffff;
+  background-color: #ac6060;
   border: 10px;
 }
 
@@ -174,10 +175,27 @@ header {
   <header>
     <center><h1>YUMMY RESTAURANT</h1></center>
   </header>
-
-  <center><h2>Menu</h2></center>
+  <nav role="navigation" aria-label="navigation">
+    <ul>
+      <li><a href="CustomerHome.html"><h3>Home</h3></a></li>
+      <li><a href="CustomerOrder.html"><h3>Order delivery</h3></a></li>
+      <li><a href="OrderHistory.html"><h3>Order History</h3></a></li>
+      <li class="nav-icons">
+        <div>
+          <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
+        </div>
+        <div>
+          <a href="CustomerAccount.html"><img width="60px" src="images/LOGOUT.png"></a>
+        </div>
+      </li>
+      <li>
+        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+      </li>
+    </ul>
+  </nav>
+  <div class ="whitebg">
+  <center><h2>Order</h2></center></div>
   <div class="menu">
-    
         <div class="menu-item">
           <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
           <h3>Singapore Stir-fried Noodles</h3>
@@ -208,9 +226,9 @@ header {
     <center><h2>Order list</h2></center>
     <ul id="cart-items">
     </ul>
-    </div>
     <center><div id="total-price">Total Price: $0.00</div>
 <a href="OrderPayment.html"><button id="checkout" onclick="checkout()" >Checkout</button></a></center>
+</div>
 <div class="footer ">
   <p>Copyright @2023 | Yummy Restaurant</p>
   <p>All rights reserved.</p>

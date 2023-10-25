@@ -84,9 +84,18 @@ nav ul {
     padding: 0;
 }
 
+.nav-icons {
+    margin-left: auto;
+    display: flex;
+  }
+
 nav ul li a.active {
     color: blue;
     background-color: #008CBA;
+}
+
+nav h3{
+    margin-left: 150px;
 }
 
 nav ul li input {

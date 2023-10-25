@@ -185,6 +185,24 @@
   <header>
     <center><h1>YUMMY RESTAURANT</h1></center>
   </header>
+  <nav role="navigation" aria-label="navigation">
+    <ul>
+      <li><a href="CustomerHome.html"><h3>Home</h3></a></li>
+      <li><a href="CustomerOrder.html"><h3>Order delivery</h3></a></li>
+      <li><a href="OrderHistory.html"><h3>Order History</h3></a></li>
+      <li class="nav-icons">
+        <div>
+          <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
+        </div>
+        <div>
+          <a href="CustomerAccount.html"><img width="60px" src="images/LOGOUT.png"></a>
+        </div>
+      </li>
+      <li>
+        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+      </li>
+    </ul>
+  </nav>
   <div class="whitebg">
   <center><h1>Order Confirmation</h1></center>
 </div>
