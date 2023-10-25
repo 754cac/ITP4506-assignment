@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="register.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .order-details {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .order-summary {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .delivery-address {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 90%;
+      padding: 5px;
+    }
+
+    .credit-card-form {
+      display: none;
+    }
+
+  .order-summary {
+    position: absolute;
+    height: 250px;
+  }
+  .order-summary {
+    background-color: #e6cbcb;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; 
+  }
+
+  .order-summary h2 {
+     margin-top: 0;
+  }
+
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+  }
+
+  .order-summary li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.item-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+    button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c00;
+    }
+    
+    .menu-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .menu-item:hover{
+      background: #8f2e2e;
+    }
+
+    .menu-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+
+    .card-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .card-item:hover{
+      background: #8f2e2e;
+    }
+
+    .card-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .delivery-address {
+      flex: 1;
+      height: 590px; 
+      overflow-y: scroll;
+      position: relative;
+      margin-left: 5px;
+    }
+    
+    .cvv {
+      margin-right: 30px;
+      width: 0px;
+      flex: 1;
+    }
+
+    .pinkbg{
+    background-color: #b36c6c;
+  }
+
+    .expiration-date{
+      width: 70px;
+      flex: 1;
+    }
+
+  .input-container {
+    display: flex;
+  }
+
+  .input-container input {
+    flex: 1;
+    margin-right: 0px;
+  }
+
+  header {
+    background-color: rgb(168, 40, 36);
+    color: #bdb2b2;
+    padding: 20px;
+  }
+
+  .footer {
+  background-color: #333;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+  </style>
+  <title>Order History</title>
+</head>
+<body>
+  <header>
+    <center><h1>YUMMY RESTAURANT</h1></center>
+  </header>
+  <nav role="navigation" aria-label="navigation">
+    <ul>
+      <li><a href="CustomerHome.html"><h3>Home</h3></a></li>
+      <li><a href="CustomerOrder.html"><h3>Order delivery</h3></a></li>
+      <li><a href="OrderHistory.html"><h3>Order History</h3></a></li>
+      <li class="nav-icons">
+        <div>
+          <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
+        </div>
+        <div>
+          <a href="CustomerAccount.html"><img width="60px" src="images/LOGOUT.png"></a>
+        </div>
+      </li>
+      <li>
+        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+      </li>
+    </ul>
+  </nav>
+  <div class="whitebg">
+    <center><h1>Order History</h1></center>
+    <hr>
+    <div class="card-item" onclick="selectCardItem(this),toggleCreditCardForm()">
+        ****-****-****-0067<br>
+        HUNG YAN YI<br>
+        12/27<br>
+        <div class="credit-card-form">
+      </div>
+    </div>
+
+    </div>
+  <div class="footer ">
+    <p>Copyright @2023 | Yummy Restaurant</p>
+    <p>All rights reserved.</p>
+  </div>
+  
+  
+  
+
+  <script>
+    function selectMenuItem(item) {
+      var menuItems = document.getElementsByClassName("menu-item");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    function selectCardItem(item) {
+      var cardItems = document.getElementsByClassName("card-item");
+      for (var i = 0; i < cardItems.length; i++) {
+        cardItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    // Function to toggle the credit card form based on the selected payment method
+    function toggleCreditCardForm() {
+      var paymentMethod = document.getElementById("payment").value;
+      var creditCardForm = document.querySelector(".credit-card-form");
+
+      if (paymentMethod === "credit-card") {
+        creditCardForm.style.display = "block";
+      } else {
+        creditCardForm.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
