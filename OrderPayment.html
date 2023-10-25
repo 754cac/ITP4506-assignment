@@ -130,7 +130,7 @@
       height: 590px; 
       overflow-y: scroll;
       position: relative;
-      opacity: 1;
+      margin-left: 5px;
     }
     
     .cvv {
@@ -138,6 +138,10 @@
       width: 0px;
       flex: 1;
     }
+
+    .pinkbg{
+    background-color: #b36c6c;
+  }
 
     .expiration-date{
       width: 70px;
@@ -198,12 +202,12 @@
       <hr>
       <center><div id="total-price">Total price: $250</div></center>
     </div>
-    <div class="whitebg">
+    <div class="pinkbg">
     <div class="delivery-address">
       <h3>Delivery Address</h3>
       <div class="select delivery-address">
         <center><h4>Address Selection</h4></center>
-        <div class="menu-item" onclick="selectMenuItem(this)">flat 1424, 14/F Block 1<br>
+        <div class="menu-item" onclick="selectMenuItem(this)">flat 1424, 14/F Block 5<br>
           WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
           NT<br></div>
         <div class="menu-item" onclick="selectMenuItem(this)">flat 332, 3/F Block C<br>
@@ -218,7 +222,7 @@
       <input type="radio" id="nt" name="area" value="NT">NT
       <input type="radio" id="kln" name="area" value="KLN">KLN
       <input type="radio" id="hk" name="area" value="HK">HK<br>
-      <input type="checkbox" id="remember" name="remember">Remember this address
+      <input type="checkbox" id="remember" name="remember">Save address
       <hr>
       <h3>Payment Method</h3>
       <label for="payment">Payment Method:</label>
@@ -229,10 +233,10 @@
 
       <div class="credit-card-form">
         <h3>Credit Card Details</h3>
-        <div class="card-item" onclick="selectCardItem(this)">****-****-****-0067<br>
+        <div class="card-item" onclick="selectCardItem(this)">****-****-****-0067 <img width = 50px src="images/MASTER.png"><br>
           HUNG YAN YI<br>
           12/27<br></div>
-          <div class="card-item" onclick="selectCardItem(this)">****-****-****-0135<br>
+          <div class="card-item" onclick="selectCardItem(this)">****-****-****-0135 <img width = 50px src="images/VISA.jpg"><br>
             HUNG YAN YI<br>
             12/25<br></div>
         <h4>Other credit card</h4>
@@ -252,6 +256,7 @@
             <input type="text" id="cvv" name="cvv" placeholder="CVV">
           </div>
         </div> 
+        <input type="checkbox" id="remember" name="remember">Save Credit card
       </div><center><a href="OrderConfirmed.html"><button onclick="confirmOrder()" >Confirm Order</button></a></center>
     </div> 
   </div> 
