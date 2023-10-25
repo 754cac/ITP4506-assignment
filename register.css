@@ -158,6 +158,10 @@ nav ul li a {
     opacity: .8;
   }
 
+  .bg{
+    background-color: #e9b5b5;
+  }
+
 .footer {
 	background-color: #333;
 	text-align: center;

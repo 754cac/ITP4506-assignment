@@ -163,21 +163,25 @@
     padding: 20px;
   }
 
-  .footer {
-  background-color: #333;
-  text-align: center;
-  color: white;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 20px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
+  .order-summary{
+    position: absolute;
+  }
+
+  .order-summary h2 {
+      margin-top: 0;
+    }
+
+    .order-summary ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; 
+    }
+
+    .order-summary li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
   </style>
   <title>Order History</title>
 </head>
@@ -195,7 +199,7 @@
           <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
         </div>
         <div>
-          <a href="CustomerAccount.html"><img width="60px" src="images/LOGOUT.png"></a>
+          <a href="login.html"><img width="60px" src="images/LOGOUT.png"></a>
         </div>
       </li>
       <li>
@@ -203,15 +207,94 @@
       </li>
     </ul>
   </nav>
-  <div class="whitebg">
+  <div class="bg">
     <center><h1>Order History</h1></center>
     <hr>
-    <div class="card-item" onclick="selectCardItem(this),toggleCreditCardForm()">
-        ****-****-****-0067<br>
-        HUNG YAN YI<br>
-        12/27<br>
-        <div class="credit-card-form">
+    
+    <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+        
+      <h2>Order ID : 000-00001111</h2>
+        Order Date : 27/10/2023 21:20:53<br>
+        Delivery Time :  
       </div>
+        <div class="Order-details">
+          <img width=90% src="images/Ordercon.jpg">
+          
+            <center><h3>Order Summary</h3></center>
+            <hr>
+            <h3>Address:</h3>
+            <br>
+            flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
+            <hr>
+            <ul id="cart-items">
+              <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
+              <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
+              <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
+              <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <center><div id="total-price">Total price: $250</div></center>
+          </div>
+    
+    <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+        
+      <h2>Order ID : 000-00992211</h2>
+        Order Date : 01/10/2023 13:20:05<br>
+        Delivery Time :  01/10/2023 13:50:18
+      </div>
+        <div class="Order-details">
+          <img width=90% src="images/Deliveryed.jpg">
+          
+            <center><h3>Order Summary</h3></center>
+            <hr>
+            <h3>Address:</h3>
+            <br>
+            flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
+            <hr>
+            <ul id="cart-items">
+              <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
+              <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
+              <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
+              <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <center><div id="total-price">Total price: $250</div></center>
+          </div>
+   
+    <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+        
+      <h2>Order ID : 000-00101132</h2>
+        Order Date : 18/09/2023 18:10:19<br>
+        Delivery Time :  18/09/2023 18:57:34
+      </div>
+        <div class="Order-details">
+          <img width=90% src="images/Deliveryed.jpg">
+          <center><h3>Order Summary</h3></center>
+            <hr>
+            <h3>Address:</h3>
+            <br>
+            flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
+            <hr>
+            <ul id="cart-items">
+              <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
+              <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
+              <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
+              <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <center><div id="total-price">Total price: $250</div></center>
     </div>
 
     </div>
@@ -240,17 +323,41 @@
       item.classList.add("selected");
     }
 
-    // Function to toggle the credit card form based on the selected payment method
-    function toggleCreditCardForm() {
-      var paymentMethod = document.getElementById("payment").value;
-      var creditCardForm = document.querySelector(".credit-card-form");
+    window.addEventListener("load", function() {
+  var orderDetails = document.querySelectorAll(".Order-details");
 
-      if (paymentMethod === "credit-card") {
-        creditCardForm.style.display = "block";
-      } else {
-        creditCardForm.style.display = "none";
+  // 隐藏所有的 Order-details 内容
+  for (var i = 0; i < orderDetails.length; i++) {
+    orderDetails[i].style.display = "none";
+  }
+});
+
+function toggleCreditCardForm() {
+  var cardItems = document.querySelectorAll(".card-item");
+  var orderDetails = document.querySelectorAll(".Order-details");
+
+  for (var i = 0; i < cardItems.length; i++) {
+    cardItems[i].addEventListener("click", function() {
+      // Remove "selected" class from all card-items
+      for (var j = 0; j < cardItems.length; j++) {
+        cardItems[j].classList.remove("selected");
       }
-    }
+      // Add "selected" class to the clicked card-item
+      this.classList.add("selected");
+
+      // Hide all order-details
+      for (var k = 0; k < orderDetails.length; k++) {
+        orderDetails[k].style.display = "none";
+      }
+
+      // Get the corresponding order-details element and show it
+      var orderDetailsElement = this.nextElementSibling;
+      orderDetailsElement.style.display = "block";
+    });
+  }
+}
+
+toggleCreditCardForm();
   </script>
 </body>
 </html>
