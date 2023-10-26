@@ -3,6 +3,7 @@ var totalPrice = 0;
 
 function addToCart(itemName) {
   // Retrieve the price of the item
+  
   var menuItems = document.querySelectorAll('.menu-item');
   var price;
 
@@ -73,6 +74,20 @@ function updateTotalPrice() {
   totalPriceElement.textContent = "Total Price: $" + totalPrice.toFixed(2);
 }
 
+function increaseQuantity(button) {
+  var quantityElement = button.previousElementSibling;
+  var currentQuantity = parseInt(quantityElement.textContent);
+  quantityElement.textContent = currentQuantity + 1;
+}
+
+function decreaseQuantity(button) {
+  var quantityElement = button.nextElementSibling;
+  var currentQuantity = parseInt(quantityElement.textContent);
+  if (currentQuantity > 1) {
+    quantityElement.textContent = currentQuantity - 1;
+  }
+}
+
 function getCookie(index) {
   // Display the value of the test cookie using alert
   var cookies = document.cookie.split("; ");
@@ -84,3 +99,4 @@ function getCookie(index) {
     }
   }
 }
+
