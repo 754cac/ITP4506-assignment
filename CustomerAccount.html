@@ -156,28 +156,6 @@
     flex: 1;
     margin-right: 0px;
   }
-
-  header {
-    background-color: rgb(168, 40, 36);
-    color: #bdb2b2;
-    padding: 20px;
-  }
-
-  .footer {
-  background-color: #333;
-  text-align: center;
-  color: white;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 20px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
   </style>
   <title>Main page</title>
 </head>
@@ -210,5 +188,38 @@
     <p>Copyright @2023 | Yummy Restaurant</p>
     <p>All rights reserved.</p>
   </div>
+  
+  
+  
+
+  <script>
+    function selectMenuItem(item) {
+      var menuItems = document.getElementsByClassName("menu-item");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    function selectCardItem(item) {
+      var cardItems = document.getElementsByClassName("card-item");
+      for (var i = 0; i < cardItems.length; i++) {
+        cardItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    // Function to toggle the credit card form based on the selected payment method
+    function toggleCreditCardForm() {
+      var paymentMethod = document.getElementById("payment").value;
+      var creditCardForm = document.querySelector(".credit-card-form");
+
+      if (paymentMethod === "credit-card") {
+        creditCardForm.style.display = "block";
+      } else {
+        creditCardForm.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
