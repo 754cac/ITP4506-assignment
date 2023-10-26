@@ -4,7 +4,186 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="register.css">
-  <title>Main page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .order-details {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .order-summary {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .delivery-address {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 90%;
+      padding: 5px;
+    }
+
+    .credit-card-form {
+      display: none;
+    }
+
+  .order-summary {
+    position: absolute;
+    height: 250px;
+  }
+  .order-summary {
+    background-color: #e6cbcb;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; 
+  }
+
+  .order-summary h2 {
+     margin-top: 0;
+  }
+
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+  }
+
+  .order-summary li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.item-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+    button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c00;
+    }
+    
+    .menu-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .menu-item:hover{
+      background: #8f2e2e;
+    }
+
+    .menu-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+
+    .card-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .card-item:hover{
+      background: #8f2e2e;
+    }
+
+    .card-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .delivery-address {
+      flex: 1;
+      height: 590px; 
+      overflow-y: scroll;
+      position: relative;
+      margin-left: 5px;
+    }
+    
+    .cvv {
+      margin-right: 30px;
+      width: 0px;
+      flex: 1;
+    }
+
+    .pinkbg{
+    background-color: #b36c6c;
+  }
+
+    .expiration-date{
+      width: 70px;
+      flex: 1;
+    }
+
+  .input-container {
+    display: flex;
+  }
+
+  .input-container input {
+    flex: 1;
+    margin-right: 0px;
+  }
+
+  header {
+    background-color: rgb(168, 40, 36);
+    color: #bdb2b2;
+    padding: 20px;
+  }
+
+  .order-summary{
+    position: absolute;
+  }
+
+  .order-summary h2 {
+      margin-top: 0;
+    }
+
+    .order-summary ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; 
+    }
+
+    .order-summary li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+  </style>
+  <title>Account</title>
 </head>
 <body>
   <header>
@@ -29,11 +208,118 @@
     </ul>
   </nav>
   <div class="bg">
-    11
-    </div>
+<!-- Add your account management elements here -->
+<h1>Account Management</h1>
+<div>
+  <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+  <h3>Change Password</h3></div>
+  <div class="Order-details">
+  <form>
+    <label for="current_password">Current Password:</label>
+    <input type="password" name="current_password" id="current_password" required><br>
+    <label for="new_password">New Password:</label>
+    <input type="password" name="new_password" id="new_password" required><br>
+    <label for="new_password">Confirm New Password:</label>
+    <input type="password" name="new_password" id="new_password" required><br>
+    <input type="submit" value="Change Password">
+  </form>
+</div>
+
+<div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+  <h3>Add Credit Card Information</h3>
+  </div>
+  <div class="Order-details">
+  <form>
+    <label for="card_number">Card Number:</label>
+    <input type="text" name="card_number" id="card_number" required><br>
+    <label for="expiry_date">Expiry Date:</label>
+    <input type="text" name="expiry_date" id="expiry_date" required><br>
+    <!-- Add more input fields for CVV, cardholder name, etc. if needed -->
+    <input type="submit" value="Add Credit Card">
+  </form>
+</div>
+
+
+<div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+  <h3>Add Address Information</h3></div>
+  <div class="Order-details">
+  <form>
+    <label for="address">Address:</label>
+    <input type="text" name="address" id="address" required><br>
+    <!-- Add more input fields for city, state, zip code, etc. if needed -->
+    <input type="submit" value="Add Address">
+  </form>
+</div>
+
+<div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+  <h3>Delete Account</h3></div>
+  <div class="Order-details">
+  <form>
+    <label for="current_password">Current Password:</label>
+    <input type="password" name="current_password" id="current_password" required><br>
+    <label for="confirm_delete">Are you sure you want to delete your account?</label>
+    <input type="checkbox" name="confirm_delete" id="confirm_delete" required><br>
+    <input type="submit" value="Delete Account">
+  </form></div>
+</div>
+</div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>
     <p>All rights reserved.</p>
   </div>
+
+  <script>
+    function selectMenuItem(item) {
+      var menuItems = document.getElementsByClassName("menu-item");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    function selectCardItem(item) {
+      var cardItems = document.getElementsByClassName("card-item");
+      for (var i = 0; i < cardItems.length; i++) {
+        cardItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    window.addEventListener("load", function() {
+  var orderDetails = document.querySelectorAll(".Order-details");
+
+  // 隐藏所有的 Order-details 内容
+  for (var i = 0; i < orderDetails.length; i++) {
+    orderDetails[i].style.display = "none";
+  }
+});
+
+function toggleCreditCardForm() {
+  var cardItems = document.querySelectorAll(".card-item");
+  var orderDetails = document.querySelectorAll(".Order-details");
+
+  for (var i = 0; i < cardItems.length; i++) {
+    cardItems[i].addEventListener("click", function() {
+      // Remove "selected" class from all card-items
+      for (var j = 0; j < cardItems.length; j++) {
+        cardItems[j].classList.remove("selected");
+      }
+      // Add "selected" class to the clicked card-item
+      this.classList.add("selected");
+
+      // Hide all order-details
+      for (var k = 0; k < orderDetails.length; k++) {
+        orderDetails[k].style.display = "none";
+      }
+
+      // Get the corresponding order-details element and show it
+      var orderDetailsElement = this.nextElementSibling;
+      orderDetailsElement.style.display = "block";
+    });
+  }
+}
+
+toggleCreditCardForm();
+  </script>
 </body>
 </html>
