@@ -46,12 +46,3 @@ The Yummy Restaurant Group Limited Food Delivery System encompasses the followin
 
 4. **Food Delivery Process**: Coordination and management of delivery personnel, including delivery assignment, real-time notifications, route planning, communication with stakeholders, and delivery confirmation.
 
-## Installation and Deployment
-
-Instructions for installation and deployment of the Yummy Restaurant Group Limited Food Delivery System will be provided in a separate document, specifying the required software, dependencies, and setup procedures.
-
----
-
-By addressing the needs of customers, restaurants, and delivery personnel, the Yummy Restaurant Group Limited Food Delivery System aims to create a seamless and efficient experience for all stakeholders involved in the food delivery process.
-
-<a href='https://chatgpt.eugene-lam.hk'>代購ChatGPT Plus</a>
