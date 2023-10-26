@@ -8,12 +8,18 @@
   <style>
     body {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: Arial, sans-serif;
 }
 
 .menu h2 {
   margin-top: 0;
+}
+
+.cart-item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menu {
@@ -130,18 +136,35 @@ button:hover {
   cursor: pointer;
 }
 
+.quantity-button {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.quantity-button:hover {
+  background-color: #c00;
+}
+
 .delete-item:hover {
   background-color: #c00;
 }
 
 .item-price {
-  text-align: right; /* Add this line */
+  text-align: center;
 }
 
 .cart-item-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.item-name {
+  white-space: wrap;
+  max-width: 150px; 
 }
 
 .item-price {
@@ -173,46 +196,50 @@ button:hover {
       </li>
     </ul>
   </nav>
-  <div class ="whitebg">
-  <center><h2>Order</h2></center></div>
+  <div class="whitebg">
+    <center><h2>Order</h2></center>
+  </div>
   <div class="menu">
-        <div class="menu-item">
-          <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
-          <h3>Singapore Stir-fried Noodles</h3>
-          <span class="price">$50</span>
-          <button class="add-to-cart" onclick="addToCart('Singapore Stir-fried Noodles')">Add to Cart</button>
-        </div><br>
-        <div class="menu-item">
-          <img src="images/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
-          <h3>Stir-fried Beef Noodles</h3>
-          <span class="price">$50</span>
-          <button class="add-to-cart" onclick="addToCart('Stir-fried Beef Noodles')">Add to Cart</button>
-        </div><br>
-        <div class="menu-item">
-            <img src="images/Stir-fried instant noodles with pork chop.jpg" alt="Stir-fried instant noodles with pork chop">
-            <h3>Stir-fried instant noodles with pork chop</h3>
-            <span class="price">$50</span>
-            <button class="add-to-cart" onclick="addToCart('Stir-fried instant noodles with pork chop')">Add to Cart</button>
-          </div><br>
-          <div class="menu-item">
-            <img src="images/Braised E-Fu Noodles.jpg" alt="Item 2">
-            <h3>Braised E-Fu Noodles</h3>
-            <span class="price">$100</span>
-            <button class="add-to-cart" onclick="addToCart('Braised E-Fu Noodles')">Add to Cart</button>
-          </div><br>
-      </div>
+    <div class="menu-item">
+      <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
+      <h3>Singapore Stir-fried Noodles</h3>
+      <span class="price">$50</span>
+      <button class="add-to-cart" onclick="addToCart('Singapore Stir-fried Noodles', 50)">Add to Cart</button>
+    </div><br>
+    <div class="menu-item">
+      <img src="images/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
+      <h3>Stir-fried Beef Noodles</h3>
+      <span class="price">$50</span>
+      <button class="add-to-cart" onclick="addToCart('Stir-fried Beef Noodles', 50)">Add to Cart</button>
+    </div><br>
+    <div class="menu-item">
+      <img src="images/Stir-fried instant noodles with pork chop.jpg" alt="Stir-fried instant noodles with pork chop">
+      <h3>Stir-fried instant noodles with pork chop</h3>
+      <span class="price">$50</span>
+      <button class="add-to-cart" onclick="addToCart('Stir-fried instant noodles with pork chop', 50)">Add to Cart</button>
+    </div><br>
+    <div class="menu-item">
+      <img src="images/Braised E-Fu Noodles.jpg" alt="Item 2">
+      <h3>Braised E-Fu Noodles</h3>
+      <span class="price">$100</span>
+      <button class="add-to-cart" onclick="addToCart('Braised E-Fu Noodles', 100)">Add to Cart</button>
+    </div><br>
+  </div>
 
   <div class="cart">
     <center><h2>Order list</h2></center>
     <ul id="cart-items">
     </ul>
-    <center><div id="total-price">Total Price: $0.00</div>
-<a href="OrderPayment.html"><button id="checkout" onclick="checkout()" >Checkout</button></a></center>
-</div>
-<div class="footer ">
-  <p>Copyright @2023 | Yummy Restaurant</p>
-  <p>All rights reserved.</p>
-</div>
+    <center>
+      <div id="total-price">Total Price: $0.00</div>
+      <a href="OrderPayment.html"><button id="checkout" onclick="checkout()">Checkout</button></a>
+    </center>
   </div>
+
+  <div class="footer">
+    <p>Copyright @2023 | Yummy Restaurant</p>
+    <p>All rights reserved.</p>
+  </div>
+
 </body>
 </html>

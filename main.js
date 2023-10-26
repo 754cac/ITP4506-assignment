@@ -1,77 +1,74 @@
-// Function to add an item to the cart
 var totalPrice = 0;
 
-function addToCart(itemName) {
-  // Retrieve the price of the item
-  var menuItems = document.querySelectorAll('.menu-item');
-  var price;
+    function addToCart(itemName, itemPrice) {
+      var cartItems = document.getElementById("cart-items");
 
-  for (var i = 0; i < menuItems.length; i++) {
-    var menuItem = menuItems[i];
-    var menuItemName = menuItem.querySelector('h3').textContent;
+      var newItem = document.createElement("li");
+      newItem.innerHTML = `
+        <div class="cart-item-details">
+          <span class="item-name">${itemName}</span>
+          <button class="quantity-button" onclick="decreaseQuantity(this)">-</button>
+          <span class="item-quantity">1</span>
+          <button class="quantity-button" onclick="increaseQuantity(this)">+</button>
+          <span class="item-price">${'$'+itemPrice}</span>
+          <button class="delete-button" onclick="removeItem(this)">Delete</button>
+        </div>`;
 
-    if (menuItemName === itemName) {
-      var priceElement = menuItem.querySelector('.price');
-      price = parseFloat(priceElement.textContent.replace('$', ''));
-      break;
+      cartItems.appendChild(newItem);
+      totalPrice += itemPrice;
+      updateTotalPrice();
     }
-  }
 
+    function decreaseQuantity(button) {
+  var itemQuantity = button.nextElementSibling;
+  var itemPrice = button.parentNode.querySelector(".item-price").textContent;
 
-  // Create a span element to display the item's price
-  var priceSpan = document.createElement("span");
-  priceSpan.textContent = "$" + price.toFixed(2);
-  priceSpan.classList.add("item-price"); // Add a class for styling
+  var quantity = parseInt(itemQuantity.textContent); // 将字符串转换为整数
+  var price = parseInt(itemPrice.replace('$', ''));
 
-  // Create a new list item for the cart
-  var cartItem = document.createElement("li");
-
-  // Create the delete button for the item
-  var deleteButton = document.createElement("button");
-  deleteButton.classList.add("delete-item");
-  deleteButton.textContent = "Delete";
-
-  // Add event listener to delete button
-  deleteButton.addEventListener("click", function () {
-    cartItem.remove(); // Remove the item from the cart when delete button is clicked
-
-    // Update the total price
+  if (quantity > 0) {
+    itemQuantity.textContent = (quantity - 1).toString();
     totalPrice -= price;
     updateTotalPrice();
+  }
+}
 
-    // Hide the delete button if the cart is empty
-    if (document.getElementById("cart-items").childElementCount === 0) {
-      deleteButton.style.display = "none";
-    }
-  });
+function increaseQuantity(button) {
+  var itemQuantity = button.previousElementSibling;
+  var itemPrice = button.parentNode.querySelector(".item-price").textContent;
 
-  // Create a div to hold the cart item details (name and price)
-  var cartItemDetails = document.createElement("div");
-  cartItemDetails.classList.add("cart-item-details");
-  cartItemDetails.textContent = itemName;
+  var quantity = parseInt(itemQuantity.textContent); // 将字符串转换为整数
+  var price = parseInt(itemPrice.replace('$', ''));
 
-  // Append the cart item details to the cart item
-  cartItem.appendChild(cartItemDetails);
-  cartItemDetails.appendChild(priceSpan);
-  cartItem.appendChild(deleteButton);
-
-  // Append the cart item to the cart
-  var cartItems = document.getElementById("cart-items");
-  cartItems.appendChild(cartItem);
-
-  // Show the delete button
-  deleteButton.style.display = "inline-block";
-
-  // Update the total price
+  itemQuantity.textContent = (quantity + 1).toString();
   totalPrice += price;
   updateTotalPrice();
 }
 
-// Function to update the total price in the cart
-function updateTotalPrice() {
-  var totalPriceElement = document.getElementById("total-price");
-  totalPriceElement.textContent = "Total Price: $" + totalPrice.toFixed(2);
+    function removeItem(button) {
+  var item = button.parentNode.parentNode;
+  var itemPrice = button.parentNode.querySelector(".item-price").textContent;
+  var itemQuantity = button.parentNode.querySelector(".item-quantity").textContent;
+
+  var price = parseFloat(itemPrice.replace('$', ''));
+  var quantity = parseInt(itemQuantity);
+
+  if (!isNaN(price) && !isNaN(quantity)) {
+    totalPrice -= price * quantity;
+    updateTotalPrice();
+  }
+
+  item.parentNode.removeChild(item);
 }
+
+    function updateTotalPrice() {
+      var totalPriceElement = document.getElementById("total-price");
+      totalPriceElement.textContent = "Total Price: $" + totalPrice.toFixed(2);
+    }
+
+    function checkout() {
+      // Perform checkout logic here
+    }
 
 function getCookie(index) {
   // Display the value of the test cookie using alert

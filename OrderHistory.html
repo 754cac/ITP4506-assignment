@@ -45,14 +45,10 @@
     }
 
   .order-summary {
-    position: absolute;
-    height: 250px;
-  }
-  .order-summary {
     background-color: #e6cbcb;
-    padding: 20px;
+    padding: 40px;
     box-sizing: border-box;
-    position: relative; 
+    position: absolute;
   }
 
   .order-summary h2 {
@@ -107,6 +103,12 @@
       color: #fff;
     }
 
+    .item-price {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
     .card-item {
       border: 0px solid #e0d35e;
 	    border-radius: 5px;
@@ -157,15 +159,15 @@
     margin-right: 0px;
   }
 
-  header {
-    background-color: rgb(168, 40, 36);
-    color: #bdb2b2;
-    padding: 20px;
-  }
-
-  .order-summary{
-    position: absolute;
-  }
+  .order-summary {
+      background-color: #e6cbcb;
+      padding: 20px;
+      margin: 0% 25%;
+      text-align: left;
+      width: 50%;
+      box-sizing: border-box;
+      position: relative; 
+    }
 
   .order-summary h2 {
       margin-top: 0;
@@ -218,6 +220,7 @@
         Delivery Time :  
       </div>
         <div class="Order-details">
+          <div class="order-summary">
           <img width=90% src="images/Ordercon.jpg">
           
             <center><h3>Order Summary</h3></center>
@@ -239,7 +242,8 @@
             <hr>
             <center><div id="total-price">Total price: $250</div></center>
           </div>
-    
+        </div>
+    <hr>
     <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
         
       <h2>Order ID : 000-00992211</h2>
@@ -247,6 +251,7 @@
         Delivery Time :  01/10/2023 13:50:18
       </div>
         <div class="Order-details">
+          <div class="order-summary">
           <img width=90% src="images/Deliveryed.jpg">
           
             <center><h3>Order Summary</h3></center>
@@ -259,16 +264,16 @@
             <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
             <hr>
             <ul id="cart-items">
-              <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
               <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
               <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
               <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
             </ul>
             <br><br><br>
             <hr>
-            <center><div id="total-price">Total price: $250</div></center>
+            <center><div id="total-price">Total price: $200</div></center>
           </div>
-   
+        </div>
+          <hr>
     <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
         
       <h2>Order ID : 000-00101132</h2>
@@ -276,6 +281,7 @@
         Delivery Time :  18/09/2023 18:57:34
       </div>
         <div class="Order-details">
+          <div class="order-summary">
           <img width=90% src="images/Deliveryed.jpg">
           <center><h3>Order Summary</h3></center>
             <hr>
@@ -289,14 +295,12 @@
             <ul id="cart-items">
               <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
               <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
-              <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
-              <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
             </ul>
             <br><br><br>
             <hr>
-            <center><div id="total-price">Total price: $250</div></center>
-    </div>
-
+            <center><div id="total-price">Total price: $100</div></center>
+    </div></div>
+    <hr>
     </div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>
