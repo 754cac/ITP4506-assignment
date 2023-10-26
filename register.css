@@ -94,10 +94,6 @@ nav ul li a.active {
     background-color: #008CBA;
 }
 
-nav h3 {
-    margin-left: 150px;
-}
-
 nav ul li input {
     display: none;
     padding: 8px;
@@ -175,7 +171,6 @@ nav ul li a {
 	text-align: center;
 	color: white;
 	padding: 15px;
-	max-width: 1425px;
 	margin: auto;
 	overflow: hidden;
 	box-sizing: border-box;

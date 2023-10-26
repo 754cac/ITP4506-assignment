@@ -4,7 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="register.css">
+  
   <title>Main page</title>
+  <style>
+    #fh5co-about {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  background: #e6e6e6;
+  width: 100%;
+}
+#fh5co-about .fh5co-2col {
+  width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  #fh5co-about .fh5co-2col {
+    width: 100%;
+  }
+}
+#fh5co-about .fh5co-text {
+  padding: 2em 6em;
+  text-align: left;
+  background: #130d08 url(../images/wood_1.png) repeat;
+}
+@media screen and (max-width: 1200px) {
+  #fh5co-about .fh5co-text {
+    padding: 1em;
+  }
+}
+#fh5co-about .fh5co-text .btn {
+  color: #fff;
+}
+#fh5co-about .fh5co-text .heading {
+  margin-bottom: 30px;
+  color: #fff;
+  font-style: italic;
+  font-weight: 300;
+  position: relative;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+#fh5co-about .fh5co-text {
+  padding: 2em 6em;
+  text-align: left;
+  background: #130d08 url(images/wood_1.png) repeat;
+}
+#fh5co-about .fh5co-text .heading:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  left: 50%;
+  background: #fb6e14;
+  margin-left: -20px;
+}
+#fh5co-about .fh5co-text p {
+  line-height: 2;
+  color: #a99c92;
+}
+#fh5co-about .fh5co-text p span.firstcharacter {
+  float: left;
+  color: #903;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-left: 3px;
+  font-style: italic;
+  top: -20px;
+  position: relative;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+}
+#fh5co-about .fh5co-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: 1200px) {
+  #fh5co-about .fh5co-bg {
+    width: 100%;
+    min-height: 500px;
+  }
+}
+@media screen and (max-width: 7688px) {
+  #fh5co-about .fh5co-bg {
+    width: 100%;
+    min-height: 300px;
+  }
+}
+  </style>
 </head>
 <body>
   <header>
@@ -29,7 +124,13 @@
     </ul>
   </nav>
   <div class="bg">
-    11
+    <div id="fh5co-about" data-section="about">
+      <div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/res_img_1.jpg)"></div>
+      <div class="fh5co-2col fh5co-text">
+        <h2 class="heading to-animate">About Us</h2>
+        <p class="to-animate"><span class="firstcharacter">Y</span>ummy Restaurant Group Limited is a catering company. It has grown into one of the largest catering company in Hong Kong.  The Group provides diversified services including Chinese Restaurants, Western Restaurants, Japanese Restaurants, Conveyor-belt Sushi Restaurants, Fast Food Restaurants and etc. It has over 10 brands and around 100 restaurants in 2021.</p>
+      </div>
+    </div>
     </div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>
