@@ -63,7 +63,7 @@ header {
     background-color: rgb(168, 40, 36);
     color: #bdb2b2;
     padding: 20px;
-  }
+}
 
 
 nav {
@@ -87,14 +87,14 @@ nav ul {
 .nav-icons {
     margin-left: auto;
     display: flex;
-  }
+}
 
 nav ul li a.active {
     color: blue;
     background-color: #008CBA;
 }
 
-nav h3{
+nav h3 {
     margin-left: 150px;
 }
 
@@ -110,6 +110,14 @@ nav ul li {
     position: relative;
 }
 
+nav ul li:hover {
+    background-color: #c50e0e;
+}
+
+nav ul li a:hover {
+    background-color: #c50e0e;
+}
+
 nav ul li a {
     display: block;
     padding: 8px;
@@ -118,8 +126,8 @@ nav ul li a {
 }
 
 .nav ul li a:hover {
-	background-color: #c50e0e;
-	color: rgb(146, 74, 74);
+    background-color: #c50e0e;
+    color: rgb(146, 74, 74);
 }
 
 .dropdown-menu {
@@ -153,25 +161,25 @@ nav ul li a {
     cursor: pointer;
 }
 
-.whitebg{
+.whitebg {
     background-color: #e9b5b5;
     opacity: .8;
-  }
+}
 
-  .bg{
+.bg {
     background-color: #e9b5b5;
-  }
+}
 
 .footer {
-	background-color: #333;
-	text-align: center;
-	color: white;
-	padding: 15px;
-	max-width: 1425px;
-	margin: auto;
-	overflow: hidden;
-	box-sizing: border-box;
-  	order: 5;
-	font-size: 20px;
-	width: 100%;
+    background-color: #333;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    max-width: 1425px;
+    margin: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    order: 5;
+    font-size: 20px;
+    width: 100%;
 }

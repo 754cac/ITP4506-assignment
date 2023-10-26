@@ -11,8 +11,10 @@
 
 <body>
     <header>
-        <center><h1>YUMMY RESTAURANT</h1></center>
-      </header>
+        <center>
+            <h1>YUMMY RESTAURANT</h1>
+        </center>
+    </header>
     <nav role="navigation" aria-label="navigation">
         <ul>
             <li><a href="#">Home</a></li>
@@ -43,14 +45,14 @@
             <form>
                 <h2>Delivery Personnel Registration</h2>
                 <div id="error-message" style="color: red;"></div>
-                <label for="delivery-personnel-name">Name:</label>
-                <input type="text" id="delivery-personnel-name">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
 
-                <label for="delivery-personnel-email">Email:</label>
-                <input type="email" id="delivery-personnel-email">
+                <label for="email">Email:</label>
+                <input type="email" id="email">
 
-                <label for="delivery-personnel-phone">Phone Number:</label>
-                <input type="text" id="delivery-personnel-phone">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone">
 
                 <label for="password">Password:</label>
                 <input type="password" id="password">
@@ -61,19 +63,20 @@
                     <input type="checkbox" name="termAgree" id="termAgree" style="margin-right: 5px;">
                     <label for="termAgree">I agree to the data and privacy terms.</label>
                 </div>
-                <input type="submit" value="Register" onclick="toLogin(true,event)">
+                <input type="submit" value="Register" onclick="validateRegistrationForm(event)">
             </form>
         </div>
     </div>
     <div class="footer ">
         <p>Copyright @2023 | Yummy Restaurant</p>
         <p>All rights reserved.</p>
-      </div>
+    </div>
     <script>
-        function validateRegistrationForm() {
-            var name = document.getElementById("customer-name").value;
-            var email = document.getElementById("customer-email").value;
-            var phone = document.getElementById("customer-phone").value;
+        function validateRegistrationForm(event) {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
             var password = document.getElementById("password").value;
             var repeatPassword = document.getElementById("repeat-password").value;
             var termAgree = document.getElementById("termAgree").checked;
@@ -82,32 +85,22 @@
 
             if (name === "" || email === "" || phone === "" || password === "" || repeatPassword === "") {
                 errorMessage.innerHTML = "Please fill in all fields.";
-                return false;
+            } if (password !== repeatPassword) {
+                errorMessage.innerHTML = "Passwords do not match.";
             }
             if (!termAgree) {
                 errorMessage.innerHTML = "Please agree user terms.";
-                return false;
             }
-            if (password !== repeatPassword) {
-                errorMessage.innerHTML = "Passwords do not match.";
-                return false;
-            }
-            return true;
-        }
-        function toLogin(status, event) {
-            status = validateRegistrationForm();
-            event.preventDefault();
-            if (status)
-                window.location.href = "login.html";
         }
         function toLogin() {
             window.location.href = "login.html";
-        }// Function to get a cookie by index
+        }
+
         $(document).ready(function () {
             var accountType = getCookie("accountType");
             $('#customerRef').parent().hide();
             $('#restaurantRef').parent().hide();
-            if (accountType == "restauarant") {
+            if (accountType == "restaurant") {
                 alert("unauthorized access");
                 window.location.href = "login.html";
             }
