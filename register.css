@@ -166,6 +166,27 @@ nav ul li a {
     background-color: #e9b5b5;
 }
 
+.item-price {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  #cart-items li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  #cart-items li {
+    display: flex;
+    align-items: center;
+  }
+  
+  #cart-items li span {
+    margin-left: auto;
+  }
+
 .footer {
 	background-color: #333;
 	text-align: center;

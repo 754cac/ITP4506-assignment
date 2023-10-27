@@ -154,10 +154,6 @@ button:hover {
   background-color: #c00;
 }
 
-.item-price {
-  text-align: center;
-}
-
 .cart-item-details {
   display: flex;
   justify-content: space-between;
@@ -168,10 +164,18 @@ button:hover {
   max-width: 150px; 
 }
 
-.item-price {
-  text-align: center;
-  flex-basis: 60px;
+.quantity-button, .item-quantity {
+  margin: auto;
 }
+
+.delete-button {
+  margin-left: 100px;
+}
+
+.item-price{
+  padding-right: 20px;
+}
+
   </style>
   <title>Order Menu</title>
 </head>
@@ -186,14 +190,12 @@ button:hover {
       <li><a href="OrderHistory.html"><h3>Order History</h3></a></li>
       <li class="nav-icons">
         <div>
-          <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
-        </div>
-        <div>
-          <a href="login.html"><img width="60px" src="images/LOGOUT.png"></a>
-        </div>
-      </li>
-      <li>
-        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+          <div>
+            <li><a href="CustomerAccount.html"><img width="50px" src="images/Account.png"></a></li>
+          </div>
+          <div>
+            <li><a href="login.html"><img width="100px" src="images/LOGOUT.png" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')"></a></li>
+          </div>
       </li>
     </ul>
   </nav>
