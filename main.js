@@ -1,48 +1,54 @@
 var totalPrice = 0;
 
-    function addToCart(itemName, itemPrice) {
-      var cartItems = document.getElementById("cart-items");
+function addToCart(itemName, itemPrice) {
+  var cartItems = document.getElementById("cart-items");
+  var existingItems = cartItems.getElementsByClassName("item-name");
+  var newItem = document.createElement("li");
+  newItem.innerHTML = `
+    <div class="cart-item-details">
+      <span class="item-name">${itemName}</span>
+      <button class="quantity-button" onclick="decreaseQuantity(this)">-</button>
+      <span class="item-quantity">1</span>
+      <button class="quantity-button" onclick="increaseQuantity(this)">+</button>
+      <span class="item-price">${'$' + itemPrice}</span>
+      <button class="delete-button" onclick="removeItem(this)">Delete</button>
+    </div>`;
 
-      var newItem = document.createElement("li");
-      newItem.innerHTML = `
-        <div class="cart-item-details">
-          <span class="item-name">${itemName}</span>
-          <button class="quantity-button" onclick="decreaseQuantity(this)">-</button>
-          <span class="item-quantity">1</span>
-          <button class="quantity-button" onclick="increaseQuantity(this)">+</button>
-          <span class="item-price">${'$'+itemPrice}</span>
-          <button class="delete-button" onclick="removeItem(this)">Delete</button>
-        </div>`;
-
-      cartItems.appendChild(newItem);
-      totalPrice += itemPrice;
-      updateTotalPrice();
-    }
-
-    function decreaseQuantity(button) {
-  var itemQuantity = button.nextElementSibling;
-  var itemPrice = button.parentNode.querySelector(".item-price").textContent;
-
-  var quantity = parseInt(itemQuantity.textContent); // 将字符串转换为整数
-  var price = parseInt(itemPrice.replace('$', ''));
-
-  if (quantity > 0) {
-    itemQuantity.textContent = (quantity - 1).toString();
-    totalPrice -= price;
-    updateTotalPrice();
-  }
+  cartItems.appendChild(newItem);
+  totalPrice += itemPrice;
+  updateTotalPrice();
 }
 
 function increaseQuantity(button) {
   var itemQuantity = button.previousElementSibling;
   var itemPrice = button.parentNode.querySelector(".item-price").textContent;
+  var itemName = button.parentNode.querySelector(".item-name").textContent;
 
-  var quantity = parseInt(itemQuantity.textContent); // 将字符串转换为整数
+  var quantity = parseInt(itemQuantity.textContent);
   var price = parseInt(itemPrice.replace('$', ''));
 
   itemQuantity.textContent = (quantity + 1).toString();
   totalPrice += price;
   updateTotalPrice();
+}
+
+function decreaseQuantity(button) {
+  var itemQuantity = button.nextElementSibling;
+  var itemPrice = button.parentNode.querySelector(".item-price").textContent;
+
+  var quantity = parseInt(itemQuantity.textContent); // 
+  var price = parseInt(itemPrice.replace('$', ''));
+
+  if(quantity === 1){
+    var item = button.parentNode;
+    item.parentNode.removeChild(item);
+    totalPrice -= price;
+    updateTotalPrice();
+  }else if (quantity > 0) {
+    itemQuantity.textContent = (quantity - 1).toString();
+    totalPrice -= price;
+    updateTotalPrice();
+  }
 }
 
     function removeItem(button) {

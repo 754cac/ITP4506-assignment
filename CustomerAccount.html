@@ -116,7 +116,7 @@
       border-radius: 5px;
       background: #ffaaaa;
       padding: 10px 10px 10px 10px;
-      margin: 5px 5px 5px 5px;
+      margin: 5px 5px 5px 50px;
       width: 90%;
       float: center;
     }
@@ -186,6 +186,25 @@
       margin-bottom: 10px;
       position: relative;
     }
+
+    fieldset b{
+      margin-right: 20px;
+    }
+
+    .fieldset-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-container {
+    margin-left: auto;
+    margin-top: 0;
+  }
+
+  .image {
+    margin-left: auto;
+    margin-top: 0;
+  }
   </style>
   <title>Account</title>
 </head>
@@ -209,20 +228,49 @@
         </a></li>
       <li class="nav-icons">
         <div>
-          <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
+          <li><a href="CustomerAccount.html"><img width="50px" src="images/Account.png"></a></li>
         </div>
         <div>
-          <a href="login.html"><img width="60px" src="images/LOGOUT.png"></a>
+          <li><a href="login.html"><img width="100px" src="images/LOGOUT.png" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')"></a></li>
         </div>
-      </li>
-      <li>
-        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
       </li>
     </ul>
   </nav>
   <div class="bg">
     <!-- Add your account management elements here -->
     <h1>Account Management</h1>
+    <fieldset style="margin: 50px;">
+      <legend><h2>Account Information</h2></legend>
+      <div style="display: flex; align-items: center;">
+        <div>
+          <p><b>Account ID:</b> 12776-0000353467</p>
+          <p><b>Email:</b> 123@yummy.com</p>
+          <p><b>Name:</b> Hung Yan YI</p>
+          <p><b>Phone:</b> 6675 0900</p>
+        </div>
+        <div style="margin-left: auto; display: flex; align-items: center;">
+          <div style="margin-bottom: 150px; position: absolute;">
+            <button onclick="showForm()">Edit</button>
+          </div>
+         
+          <img src="images/personal.jpg" style="max-width: 60px;">
+        </div>
+      </div>
+    </fieldset>
+</fieldset>
+    <div id="formContainer" style="display: none;">
+      <form>
+        <h2>Update information</h2>
+        <label for="name">Name :</label>
+          <input type="text"><br>
+          <label for="phone">Phone:</label>
+          <input type="tel" placeholder="+852">
+          <label for="name">Upload Personal image:</label>
+           <input type="file"></input>
+           <input type="submit" value="Update">
+
+      </form>
+     </div>
     <div>
       <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
         <h3>Change Password</h3>
@@ -241,28 +289,65 @@
       </div>
 
       <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
-        <h3>Add Credit Card Information</h3>
+        <h3>Credit Card</h3>
       </div>
       <div class="Order-details">
         <form>
           <div class="error-message" style="color: red;"></div>
-          <label for="card_number">Card Number:</label>
-          <input type="number" name="card_number" id="card_number" required><br>
-          <label for="expiry_date">Expiry Date:</label>
-          <input type="text" name="expiry_date" id="expiry_date" required><br>
+          <h2>Your Credit Card</h2>
+          <div class="menu-item">****-****-****-0067 <img width = 50px src="images/MASTER.png"><br>
+            HUNG YAN YI<br>
+            12/27<br>
+          <button onclick="deleteMenuItem(this)">Delete</button></div>
+            <div class="menu-item">****-****-****-0135 <img width = 60px src="images/VISA.jpg"><br>
+              HUNG YAN YI<br>
+              12/25<br>
+              <button onclick="deleteMenuItem(this)">Delete</button></div>
+          <h2>Add new credit card</h2><p><img width = 60px src="images/VISA.jpg"> <img width = 50px src="images/MASTER.png"></p>
+          <label for="card-number">Card Number:</label>
+          <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" required>
+  
+          <label for="card-holder">Card Holder:</label>
+          <input type="text" id="card-holder" name="card-holder" placeholder="Enter the card holder's name" required>
+          <div class="input-container">
+            <div class="expiration-date">
+              <label for="Expiration Date">EXP:</label>
+              <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required>
+            </div>
+            <div class="cvv">
+              <label for="cvv">CVV:</label>
+              <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+            </div>
+          </div> 
           <input type="submit" onclick="addCard(event)" value="Add Credit Card">
         </form>
       </div>
+  
 
 
       <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
-        <h3>Add Address Information</h3>
+        <h3>Address</h3>
       </div>
       <div class="Order-details">
         <form>
+          <h2>Your Address</h2>
+          <div class="menu-item">flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <button onclick="deleteMenuItem(this)">Delete</button></div>
+          <div class="menu-item">flat 332, 3/F Block C<br>
+            Chung Hing Commercial Building, Connaught Road 62-63,Central<br>
+            HK<br>
+            <button onclick="deleteMenuItem(this)">Delete</button></div>
+            <hr>
           <div class="error-message" style="color: red;"></div>
-          <label for="address">Address:</label>
-          <input type="text" name="address" id="address" required><br>
+          
+          <label for="address"><h2>Add new address</h2></label>
+      <input type="text" id="address" name="address" placeholder="flat, floor , block">
+      <input type="text" id="street" name="street" placeholder="building, street, district">
+    <p><input type="radio" id="nt" name="area" value="NT">NT
+      <input type="radio" id="kln" name="area" value="KLN">KLN
+      <input type="radio" id="hk" name="area" value="HK">HK</p>
           <input type="submit" onclick="updateAddress(event)" value="Add Address">
         </form>
       </div>
@@ -394,6 +479,16 @@
         window.location.href = "login.html";
       }
     }
+  function deleteMenuItem(button) {
+    var menuItemDiv = button.parentNode;
+    menuItemDiv.parentNode.removeChild(menuItemDiv);
+  }
+
+
+  function showForm() {
+    var formContainer = document.getElementById('formContainer');
+    formContainer.style.display = 'block';
+  }
 
     toggleCreditCardForm();
   </script>

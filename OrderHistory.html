@@ -67,12 +67,6 @@
   position: relative;
 }
 
-.item-price {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
     button {
       background-color: #f00;
       color: #fff;
@@ -103,13 +97,6 @@
       background: rgb(160, 60, 60);
       color: #fff;
     }
-
-    .item-price {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
     .card-item {
       border: 0px solid #e0d35e;
 	    border-radius: 5px;
@@ -199,21 +186,19 @@
       <li><a href="OrderHistory.html"><h3>Order History</h3></a></li>
       <li class="nav-icons">
         <div>
-          <a href="CustomerAccount.html"><img width="30px" src="images/Account.png"></a>
-        </div>
-        <div>
-          <a href="login.html"><img width="60px" src="images/LOGOUT.png"></a>
-        </div>
-      </li>
-      <li>
-        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+          <div>
+            <li><a href="CustomerAccount.html"><img width="50px" src="images/Account.png"></a></li>
+          </div>
+          <div>
+            <li><a href="login.html"><img width="100px" src="images/LOGOUT.png" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')"></a></li>
+          </div>
       </li>
     </ul>
   </nav>
   <div class="bg">
-    <center><h1>Order History</h1></center>
-    <hr>
     
+    <hr>
+    <center><h1>Processing</h1></center>
     <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
         
       <h2>Order ID : 000-00001111</h2>
@@ -234,16 +219,18 @@
             <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
             <hr>
             <ul id="cart-items">
-              <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
-              <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
-              <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
-              <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
+              <li><h4>Singapore Stir-fried Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried Beef Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried instant noodles with pork chop</h4> <span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Braised E-Fu Noodles</h4><span>1x</span><span class="item-price">$100</span></li>
             </ul>
             <br><br><br>
             <hr>
             <center><div id="total-price">Total price: $250</div></center>
           </div>
         </div>
+    <hr>
+    <center><h1>Order History (Deliverd)</h1></center>
     <hr>
     <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
         
@@ -265,13 +252,13 @@
             <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
             <hr>
             <ul id="cart-items">
-              <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
-              <li>Stir-fried instant noodles with pork chop<span class="item-price">$50</span></li>
-              <li>Braised E-Fu Noodles<span class="item-price">$100</span></li>
+              <li><h4>Stir-fried Beef Noodles</h4><span>2x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried instant noodles with pork chop</h4><span>2x</span><span class="item-price">$50</span></li>
+              <li><h4>Braised E-Fu Noodles</h4><span>1x</span><span class="item-price">$100</span></li>
             </ul>
             <br><br><br>
             <hr>
-            <center><div id="total-price">Total price: $200</div></center>
+            <center><div id="total-price">Total price: $300</div></center>
           </div>
         </div>
           <hr>
@@ -294,12 +281,12 @@
             <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
             <hr>
             <ul id="cart-items">
-              <li>Singapore Stir-fried Noodles<span class="item-price">$50</span></li>
-              <li>Stir-fried Beef Noodles<span class="item-price">$50</span></li>
+              <li><h4>Singapore Stir-fried Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried Beef Noodles</h4><span>2x</span><span class="item-price">$50</span></li>
             </ul>
             <br><br><br>
             <hr>
-            <center><div id="total-price">Total price: $100</div></center>
+            <center><div id="total-price">Total price: $150</div></center>
     </div></div>
     <hr>
     </div>
