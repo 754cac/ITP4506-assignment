@@ -75,13 +75,13 @@
             } else {
                 if (email === 'customer@a.com' || password === 'customer@a.com') {
                     document.cookie = "accountType=customer";
-                    window.location.href = "CustomerOrder.html";
+                    window.location.href = "CustomerHome.html";
                 } else if (email === 'restaurant@a.com' && password === 'restaurant@a.com') {
                     document.cookie = "accountType=restaurant";
-                    window.location.href = "registerDelivery.html";
+                    window.location.href = "RestaurantHome.html";
                 } else if (email === 'delivery@a.com' && password === 'delivery@a.com') {
                     document.cookie = "accountType=delivery";
-                    window.location.href = "CustIndex.html";
+                    window.location.href = "DeliveryHome.html";
                 } else if (email === 'operator@a.com' && password === 'operator@a.com') {
                     document.cookie = "accountType=operator";
                     window.location.href = "registerRestaurant.html";
