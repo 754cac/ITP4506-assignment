@@ -90,12 +90,12 @@
 
             if (name === "" || address === "" || email === "" || phone === "" || password === "" || repeatPassword === "") {
                 errorMessage.innerHTML = "Please fill in all fields.";
-            }
-            if (password !== repeatPassword) {
+            } else if (password !== repeatPassword) {
                 errorMessage.innerHTML = "Passwords do not match.";
-            }
-            if (!termAgree) {
+            } else if (!termAgree) {
                 errorMessage.innerHTML = "Please agree user terms.";
+            } else {
+                alert("Account Created")
             }
         }
         function toLogin() {
