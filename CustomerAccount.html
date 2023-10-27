@@ -190,6 +190,21 @@
     fieldset b{
       margin-right: 20px;
     }
+
+    .fieldset-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-container {
+    margin-left: auto;
+    margin-top: 0;
+  }
+
+  .image {
+    margin-left: auto;
+    margin-top: 0;
+  }
   </style>
   <title>Account</title>
 </head>
@@ -224,20 +239,25 @@
   <div class="bg">
     <!-- Add your account management elements here -->
     <h1>Account Management</h1>
-    <fieldset><legend><h2>Account Information</h2></legend>
+    <fieldset>
+      <legend><h2>Account Information</h2></legend>
       <div style="display: flex; align-items: center;">
-      <div>
-        <p><b>Account ID:</b> 12776-0000353467</p>
-        <p><b>Email:</b> 123@yummy.com</p>
-        <p><b>Name:</b> Hung Yan YI</p>
-        <p><b>Phone:</b> 6675 0900</p>
+        <div>
+          <p><b>Account ID:</b> 12776-0000353467</p>
+          <p><b>Email:</b> 123@yummy.com</p>
+          <p><b>Name:</b> Hung Yan YI</p>
+          <p><b>Phone:</b> 6675 0900</p>
+        </div>
+        <div style="margin-left: auto; display: flex; align-items: center;">
+          <div style="margin-bottom: 150px; position: absolute;">
+            <button onclick="showForm()">Edit</button>
+          </div>
+         
+          <img src="images/personal.jpg" style="max-width: 60px;">
+        </div>
       </div>
-            <div style="margin-left: auto; margin-bottom: auto;">
-              <button onclick="showForm()">Edit</button><br>
-              <img src="images/personal.jpg">
-            </div>
-            
     </fieldset>
+</fieldset>
     <div id="formContainer" style="display: none;">
       <form>
         <h2>Update information</h2>
