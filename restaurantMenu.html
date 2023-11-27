@@ -5,7 +5,299 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="register.css">
+
+    <script src="main.js" charset="utf-8"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu h2 {
+            margin-top: 0;
+        }
+
+        .cart-item-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu-item {
+            border: 1px solid #990000;
+            border-radius: 5px;
+            background: #c23b3b;
+            padding: 10px 10px 10px 10px;
+            margin: 5px 5px 5px 5px;
+            width: 200px;
+            float: center;
+        }
+
+        .menu {
+            float: left;
+            width: 55%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu {
+            background-color: #ac6060;
+            border: 10px;
+            margin-right: 5%;
+        }
+
+        .menu h2 {
+            margin-top: 0;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 20px;
+        }
+
+        .menu-item img {
+            border: 1px solid #990000;
+            border-radius: 5px;
+            background: #5c1414;
+            padding: 10px 10px 10px 10px;
+            margin: 5px 5px 5px 5px;
+            display: inline-flex;
+            height: 170px;
+            width: 170px;
+            float: center;
+        }
+
+        .menu-item h3 {
+            margin: 10px 0 5px;
+        }
+
+        .menu li h3 {
+            margin: 0;
+        }
+
+        .menu li .price {
+            color: #818181;
+        }
+
+
+
+        button {
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c00;
+        }
+
+        .delete-item {
+            position: relative;
+            float: center;
+            top: 0;
+            right: 0;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .quantity-button {
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .quantity-button:hover {
+            background-color: #c00;
+        }
+
+        .delete-item:hover {
+            background-color: #c00;
+        }
+
+        .cart-item-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-name {
+            white-space: wrap;
+            max-width: 150px;
+        }
+
+        .quantity-button,
+        .item-quantity {
+            margin: auto;
+        }
+
+        .item-quantity {
+            margin: 5px;
+        }
+
+        .item-price {
+            padding-right: 50px;
+            /* Adjust the padding as per your preference */
+        }
+
+        .delete-button {
+            margin-left: 100px;
+            /* Adjust the margin as per your preference */
+        }
+
+        .cart {
+            width: 30%;
+            height: flex;
+            margin-left: 5%;
+        }
+
+        .whitebg {
+            padding: 10px 10px 0px;
+            margin: 10px;
+        }
+
+        #searchBar {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 34px;
+            vertical-align: top;
+        }
+
+        form {
+            width: auto;
+        }
+
+        .container {
+            display: flex;
+            /* Use flex layout for the container */
+        }
+
+        .menu {
+            width: 70%;
+            /* Set the width of the menu div */
+            overflow-y: auto;
+            /* Add a scrollbar when the content is too long */
+        }
+
+        .modify-tab {
+            width: 30%;
+            /* Set the width of the modify tab */
+            position: sticky;
+            /* Make the modify tab stick to the top of the page */
+            top: 0;
+            /* Align the top of the modify tab with the top of the page */
+        }
+    </style>
     <title>Menu Management</title>
+
+
+    <script>
+        function searchMenu() {
+            // Declare variables
+            var input, filter, menu, items, h3, i, txtValue;
+            input = document.getElementById('searchBar');
+            filter = input.value.toUpperCase();
+            menu = document.getElementsByClassName("menu")[0];
+            items = menu.getElementsByClassName('menu-item');
+
+            // Loop through all menu items, and hide those who don't match the search query
+            for (i = 0; i < items.length; i++) {
+                h3 = items[i].getElementsByTagName("h3")[0];
+                txtValue = h3.textContent || h3.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+
+        function filterCategory() {
+            var select, category, menu, items, h3, i, txtValue;
+            select = document.getElementById('categoryFilter');
+            category = select.value;
+            menu = document.getElementsByClassName("menu")[0];
+            items = menu.getElementsByClassName('menu-item');
+
+            // Loop through all menu items, and hide those who don't match the selected category
+            for (i = 0; i < items.length; i++) {
+                h3 = items[i].getElementsByTagName("h3")[0];
+                txtValue = h3.textContent || h3.innerText;
+                if (txtValue.indexOf(category) > -1 || category === "") {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+        function openModifyTab(itemName, itemPrice) {
+            // Show the modify tab
+            document.getElementById("modifyTab").style.display = "block";
+
+            // Pre-fill the form with the current values
+            document.getElementById("itemName").value = itemName;
+            document.getElementById("itemPrice").value = itemPrice;
+        }
+
+        function saveChanges() {
+            // Get the new values from the form
+            var newName = document.getElementById("itemName").value;
+            var newPrice = document.getElementById("itemPrice").value;
+
+            // Update the menu item with the new values
+            // Note: You'll need to implement this part based on how your menu items are structured
+
+            // Hide the modify tab
+            document.getElementById("modifyTab").style.display = "none";
+        }
+
+        function clearFilters() {
+            // Clear the search bar
+            document.getElementById("searchBar").value = "";
+
+            // Reset the category filter
+            document.getElementById("categoryFilter").value = "";
+
+            // Call your filter functions to update the menu
+            searchMenu();
+            filterCategory();
+        }
+    </script>
+
 </head>
 
 <body>
@@ -39,9 +331,86 @@
         </ul>
     </nav>
 
-    <div class="bg">
-
+    <div class="whitebg">
+        <center>
+            <div class="filterBar">
+                <input type="text" id="searchBar" onkeyup="searchMenu()" placeholder="Search for menu items...">
+                <select id="categoryFilter" onchange="filterCategory()">
+                    <option value="">All Categories</option>
+                    <option value="Noodles">Noodles</option>
+                    <option value="Rice">Rice</option>
+                </select>
+                <button onclick="clearFilters()">Clear</button>
+            </div>
+        </center>
     </div>
+
+    <div class="container">
+        <div class="menu">
+            <div class="menu-item">
+                <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
+                <h3>Singapore Stir-fried Noodles</h3>
+                <span class="price">$50</span>
+                <button class="modify-item" onclick="openModifyTab('Singapore Stir-fried Noodles', 50)">Modify</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
+                <h3>Stir-fried Beef Noodles</h3>
+                <span class="price">$50</span>
+                <button class="add-to-cart" onclick="openModifyTab('Stir-fried Beef Noodles', 50)"> Modify</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/Stir-fried instant noodles with pork chop.jpg"
+                    alt="Stir-fried instant noodles with pork chop">
+                <h3>Stir-fried instant noodles with pork chop</h3>
+                <span class="price">$50</span>
+                <button class="add-to-cart"
+                    onclick=" openModifyTab('Stir-fried instant noodles with pork chop', 50)">Add to
+                    Cart</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/Braised E-Fu Noodles.jpg" alt="Braised E-Fu Noodles">
+                <h3>Braised E-Fu Noodles</h3>
+                <span class="price">$100</span>
+                <button class="add-to-cart" onclick=" openModifyTab('Braised E-Fu Noodles', 100)"> Modify</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/Western Fried Rice.jpg" alt="Western Fried Rice">
+                <h3>Western Fried Rice</h3>
+                <span class="price">$45</span>
+                <button class="add-to-cart" onclick=" openModifyTab('Western Fried Rice', 45)"> Modify</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/EEL Fried Rice.jpg" alt="EEL Fried Rice">
+                <h3>EEL Fried Rice</h3>
+                <span class="price">$45</span>
+                <button class="add-to-cart" onclick=" openModifyTab('EEL Fried Rice', 45)"> Modify</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/Hokkien Fried Rice.jpg" alt="Item 2">
+                <h3>Hokkien Fried Rice</h3>
+                <span class="price">$55</span>
+                <button class="add-to-cart" onclick=" openModifyTab('Hokkien Fried Rice', 55)"> Modify</button>
+            </div><br>
+            <div class="menu-item">
+                <img src="images/Yangzhou Fried Rice.jpeg" alt="Item 2">
+                <h3>Yangzhou Fried Rice</h3>
+                <span class="price">$65</span>
+                <button class="add-to-cart" onclick=" openModifyTab('Yangzhou Fried Rice', 65)"> Modify</button>
+            </div><br>
+        </div>
+        <div class="modify-tab" id="modifyTab" style="display: none;">
+
+            <form id="modifyForm">
+                <h1>Modify Menu Item</h1>
+                Name: <input type="text" id="itemName"><br>
+                Price: <input type="text" id="itemPrice"><br>
+                Photo: <input type="file" id="itemPhoto"><br>
+                <input type="button" value="Save Changes" onclick="saveChanges()">
+            </form>
+        </div>
+    </div>
+
     <div class="footer ">
         <p>Copyright @2023 | Yummy Restaurant</p>
         <p>All rights reserved.</p>
