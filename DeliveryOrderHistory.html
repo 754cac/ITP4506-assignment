@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="register.css">
+  <title>Main page</title>
+</head>
+
+<style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .order-details {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .order-summary {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .delivery-address {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 90%;
+      padding: 5px;
+    }
+
+    .credit-card-form {
+      display: none;
+    }
+
+  .order-summary {
+    background-color: #e6cbcb;
+    padding: 40px;
+    box-sizing: border-box;
+    position: absolute;
+  }
+
+  .order-summary h2 {
+     margin-top: 0;
+  }
+
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+  }
+
+  .order-summary li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+    button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c00;
+    }
+    
+    .menu-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .menu-item:hover{
+      background: #8f2e2e;
+    }
+
+    .menu-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .card-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .card-item:hover{
+      background: #8f2e2e;
+    }
+
+    .card-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .delivery-address {
+      flex: 1;
+      height: 590px; 
+      overflow-y: scroll;
+      position: relative;
+      margin-left: 5px;
+    }
+    
+    .cvv {
+      margin-right: 30px;
+      width: 0px;
+      flex: 1;
+    }
+
+    .pinkbg{
+    background-color: #b36c6c;
+  }
+
+    .expiration-date{
+      width: 70px;
+      flex: 1;
+    }
+
+  .input-container {
+    display: flex;
+  }
+
+  .input-container input {
+    flex: 1;
+    margin-right: 0px;
+  }
+
+  .order-summary {
+      background-color: #e6cbcb;
+      padding: 20px;
+      margin: 0% 25%;
+      text-align: left;
+      width: 50%;
+      box-sizing: border-box;
+      position: relative; 
+    }
+
+  .order-summary h2 {
+      margin-top: 0;
+    }
+
+    .order-summary ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; 
+    }
+
+    .order-summary li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+  </style>
+<body>
+  <header>
+    <center>
+      <h1>YUMMY RESTAURANT</h1>
+    </center>
+  </header>
+  <nav role="navigation" aria-label="navigation">
+    <ul>
+      <li><a href="DeliveryHome.html">
+          <h3>Home</h3>
+        </a></li>
+        <li><a href="DeliveryOrder.html">
+          <h3>Take Order</h3>
+        </a></li>
+        <li><a href="DeliveryOrderHistory.html">
+          <h3>Delivery History</h3>
+        </a></li>
+      <li class="nav-icons">
+        <div>
+        <li><a href="DeliveryAccoun廿.html"><img width="50px" src="images/Account.png"></a></li>
+        </div>
+        <div>
+        <li><a href="login.html"><img width="100px" src="images/LOGOUT.png"></a></li>
+        </div>
+      </li>
+      <li>
+        <input type="button" value="Logout" name="logout" id="logout" onclick="deleteCookie('accountType')">
+      </li>
+    </ul>
+  </nav>
+  <div class="bg">
+    <hr>
+    <center><h1>Processing</h1></center>
+    <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+        
+      <h2>Order ID : 000-00001111</h2>
+        Order Date : 27/10/2023 21:20:53<br>
+        Delivery Time :  
+      </div>
+        <div class="Order-details">
+          <div class="order-summary">
+          <img width=90% src="images/Ordercon.jpg">
+          
+            <center><h3>Order Summary</h3></center>
+            <hr>
+            <h3>Address:</h3>
+            <br>
+            flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
+            <hr>
+            <ul id="cart-items">
+              <li><h4>Singapore Stir-fried Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried Beef Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried instant noodles with pork chop</h4> <span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Braised E-Fu Noodles</h4><span>1x</span><span class="item-price">$100</span></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <center><div id="total-price">Total price: $250</div></center>
+          </div>
+        </div>
+    <hr>
+    <center><h1>Order History (Deliverd)</h1></center>
+    <hr>
+    <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+        
+      <h2>Order ID : 000-00992211</h2>
+        Order Date : 01/10/2023 13:20:05<br>
+        Delivery Time :  01/10/2023 13:50:18
+      </div>
+        <div class="Order-details">
+          <div class="order-summary">
+          <img width=90% src="images/Deliveryed.jpg">
+          
+            <center><h3>Order Summary</h3></center>
+            <hr>
+            <h3>Address:</h3>
+            <br>
+            flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
+            <hr>
+            <ul id="cart-items">
+              <li><h4>Stir-fried Beef Noodles</h4><span>2x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried instant noodles with pork chop</h4><span>2x</span><span class="item-price">$50</span></li>
+              <li><h4>Braised E-Fu Noodles</h4><span>1x</span><span class="item-price">$100</span></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <center><div id="total-price">Total price: $300</div></center>
+          </div>
+        </div>
+          <hr>
+    <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
+        
+      <h2>Order ID : 000-00101132</h2>
+        Order Date : 18/09/2023 18:10:19<br>
+        Delivery Time :  18/09/2023 18:57:34
+      </div>
+        <div class="Order-details">
+          <div class="order-summary">
+          <img width=90% src="images/Deliveryed.jpg">
+          <center><h3>Order Summary</h3></center>
+            <hr>
+            <h3>Address:</h3>
+            <br>
+            flat 1424, 14/F Block 5<br>
+            WAN HANG HOUSE, WAN TAU TONG ESTATE, TAI PO<br>
+            NT<br>
+            <h3>Payment:</h3>Credit card : ****-****-****-0067<img width = 40px src="images/MASTER.png"><br>
+            <hr>
+            <ul id="cart-items">
+              <li><h4>Singapore Stir-fried Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
+              <li><h4>Stir-fried Beef Noodles</h4><span>2x</span><span class="item-price">$50</span></li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <center><div id="total-price">Total price: $150</div></center>
+    </div></div>
+    <hr>
+  </div>
+  <div class="footer ">
+    <p>Copyright @2023 | Yummy Restaurant</p>
+    <p>All rights reserved.</p>
+  </div>
+</body>
+<script>
+    function selectMenuItem(item) {
+      var menuItems = document.getElementsByClassName("menu-item");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    function selectCardItem(item) {
+      var cardItems = document.getElementsByClassName("card-item");
+      for (var i = 0; i < cardItems.length; i++) {
+        cardItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
+
+    window.addEventListener("load", function() {
+  var orderDetails = document.querySelectorAll(".Order-details");
+
+  for (var i = 0; i < orderDetails.length; i++) {
+    orderDetails[i].style.display = "none";
+  }
+});
+
+function toggleCreditCardForm() {
+  var cardItems = document.querySelectorAll(".card-item");
+  var orderDetails = document.querySelectorAll(".Order-details");
+
+  for (var i = 0; i < cardItems.length; i++) {
+    cardItems[i].addEventListener("click", function() {
+      // Remove "selected" class from all card-items
+      for (var j = 0; j < cardItems.length; j++) {
+        cardItems[j].classList.remove("selected");
+      }
+      // Add "selected" class to the clicked card-item
+      this.classList.add("selected");
+
+      // Hide all order-details
+      for (var k = 0; k < orderDetails.length; k++) {
+        orderDetails[k].style.display = "none";
+      }
+
+      // Get the corresponding order-details element and show it
+      var orderDetailsElement = this.nextElementSibling;
+      orderDetailsElement.style.display = "block";
+    });
+  }
+}
+
+toggleCreditCardForm();
+  </script>
+</html>
