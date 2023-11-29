@@ -203,23 +203,27 @@
 
         .container {
             display: flex;
-            /* Use flex layout for the container */
         }
 
-        .menu {
-            width: 70%;
-            /* Set the width of the menu div */
-            overflow-y: auto;
-            /* Add a scrollbar when the content is too long */
+
+        #modifyTab {
+            width: 500px;
+        }
+
+        .modify-tab {
+            /* width: 30%;
+            position: fixed;
+            top: 100; */
         }
 
         .modify-tab {
             width: 30%;
-            /* Set the width of the modify tab */
-            position: sticky;
-            /* Make the modify tab stick to the top of the page */
-            top: 0;
-            /* Align the top of the modify tab with the top of the page */
+            /*  position: sticky;
+            */
+            top: 0px;
+            left: 700px;
+            transition: top 0.3s ease-out;
+            /* Add a transition effect */
         }
     </style>
     <title>Menu Management</title>
@@ -234,7 +238,6 @@
             menu = document.getElementsByClassName("menu")[0];
             items = menu.getElementsByClassName('menu-item');
 
-            // Loop through all menu items, and hide those who don't match the search query
             for (i = 0; i < items.length; i++) {
                 h3 = items[i].getElementsByTagName("h3")[0];
                 txtValue = h3.textContent || h3.innerText;
@@ -253,7 +256,6 @@
             menu = document.getElementsByClassName("menu")[0];
             items = menu.getElementsByClassName('menu-item');
 
-            // Loop through all menu items, and hide those who don't match the selected category
             for (i = 0; i < items.length; i++) {
                 h3 = items[i].getElementsByTagName("h3")[0];
                 txtValue = h3.textContent || h3.innerText;
@@ -268,31 +270,19 @@
             // Show the modify tab
             document.getElementById("modifyTab").style.display = "block";
 
-            // Pre-fill the form with the current values
             document.getElementById("itemName").value = itemName;
             document.getElementById("itemPrice").value = itemPrice;
         }
 
         function saveChanges() {
-            // Get the new values from the form
             var newName = document.getElementById("itemName").value;
             var newPrice = document.getElementById("itemPrice").value;
-
-            // Update the menu item with the new values
-            // Note: You'll need to implement this part based on how your menu items are structured
-
-            // Hide the modify tab
-            document.getElementById("modifyTab").style.display = "none";
+            alert("Change saved");
         }
 
         function clearFilters() {
-            // Clear the search bar
             document.getElementById("searchBar").value = "";
-
-            // Reset the category filter
             document.getElementById("categoryFilter").value = "";
-
-            // Call your filter functions to update the menu
             searchMenu();
             filterCategory();
         }
@@ -351,13 +341,13 @@
                 <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
                 <h3>Singapore Stir-fried Noodles</h3>
                 <span class="price">$50</span>
-                <button class="modify-item" onclick="openModifyTab('Singapore Stir-fried Noodles', 50)">Modify</button>
+                <button class="modify-item" onclick="openModifyTab('Singapore Stir-fried Noodles', 50)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
                 <h3>Stir-fried Beef Noodles</h3>
                 <span class="price">$50</span>
-                <button class="add-to-cart" onclick="openModifyTab('Stir-fried Beef Noodles', 50)"> Modify</button>
+                <button class="add-to-cart" onclick="openModifyTab('Stir-fried Beef Noodles', 50)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Stir-fried instant noodles with pork chop.jpg"
@@ -365,48 +355,53 @@
                 <h3>Stir-fried instant noodles with pork chop</h3>
                 <span class="price">$50</span>
                 <button class="add-to-cart"
-                    onclick=" openModifyTab('Stir-fried instant noodles with pork chop', 50)">Add to
-                    Cart</button>
+                    onclick=" openModifyTab('Stir-fried instant noodles with pork chop', 50)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Braised E-Fu Noodles.jpg" alt="Braised E-Fu Noodles">
                 <h3>Braised E-Fu Noodles</h3>
                 <span class="price">$100</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Braised E-Fu Noodles', 100)"> Modify</button>
+                <button class="add-to-cart" onclick=" openModifyTab('Braised E-Fu Noodles', 100)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Western Fried Rice.jpg" alt="Western Fried Rice">
                 <h3>Western Fried Rice</h3>
                 <span class="price">$45</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Western Fried Rice', 45)"> Modify</button>
+                <button class="add-to-cart" onclick=" openModifyTab('Western Fried Rice', 45)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/EEL Fried Rice.jpg" alt="EEL Fried Rice">
                 <h3>EEL Fried Rice</h3>
                 <span class="price">$45</span>
-                <button class="add-to-cart" onclick=" openModifyTab('EEL Fried Rice', 45)"> Modify</button>
+                <button class="add-to-cart" onclick=" openModifyTab('EEL Fried Rice', 45)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Hokkien Fried Rice.jpg" alt="Item 2">
                 <h3>Hokkien Fried Rice</h3>
                 <span class="price">$55</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Hokkien Fried Rice', 55)"> Modify</button>
+                <button class="add-to-cart" onclick=" openModifyTab('Hokkien Fried Rice', 55)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Yangzhou Fried Rice.jpeg" alt="Item 2">
                 <h3>Yangzhou Fried Rice</h3>
                 <span class="price">$65</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Yangzhou Fried Rice', 65)"> Modify</button>
+                <button class="add-to-cart" onclick=" openModifyTab('Yangzhou Fried Rice', 65)">Modify</button>Enabled
             </div><br>
         </div>
-        <div class="modify-tab" id="modifyTab" style="display: none;">
-
+        <div class="modify-tab" id="modifyTab">
             <form id="modifyForm">
-                <h1>Modify Menu Item</h1>
+                <h4>Modify Menu Item</h4>
                 Name: <input type="text" id="itemName"><br>
                 Price: <input type="text" id="itemPrice"><br>
                 Photo: <input type="file" id="itemPhoto"><br>
+                <div style="display: inline-block;">
+                    Status: <input type="radio" id="enableItem" name="itemStatus" value="enable" checked>
+                    <label for="enableItem">Enable</label>
+                    <input type="radio" id="disableItem" name="itemStatus" value="disable">
+                    <label for="disableItem">Disable</label>
+                </div>
                 <input type="button" value="Save Changes" onclick="saveChanges()">
+                <input type="button" value="Delete Item" onclick="confirm('Please confirm delete')">
             </form>
         </div>
     </div>
