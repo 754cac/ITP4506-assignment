@@ -246,25 +246,9 @@
   <div class="bg">
     <center>
         <h1>--- Order ---</h1>
-        <hr>
-        <div class="filterBar">
-            <h2>Sort:
-            <select id="categoryFilter">
-                <option value="">(Please select one)</option>
-                <option value="Pickup distance">Pickup distance</option>
-                <option value="Delivery distance">Delivery distance</option>
-                <option value="Revenue">Revenue</option>
-            </select>
-            <select id="AscDescFilter">
-                <option value="">(Please select one)</option>
-                <option value="ASC">ASC</option>
-                <option value="DESC">DESC</option>
-            </select>
-            <button onclick="SortOrder()">Confirm</button>
-
-        </div>
     </center>
     <hr>
+    <div class="card-items-container">
     <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
         <h2>Order ID : 000-00001111</h2>
         Order Date : 27/10/2023 21:20:53<br><br>
@@ -274,7 +258,7 @@
             <h3>Delivery distance(m): </h3>
             <span class="right-align">1000</span>
             <h3>Estimated revenue: </h3>
-            <span class="right-align">$60</span>
+            <span class="right-align">60</span>
         </div>
       </div>
         <div class="Order-details">
@@ -311,7 +295,7 @@
             <h3>Delivery distance(m): </h3>
             <span class="right-align">2000</span>
             <h3>Estimated revenue: </h3>
-            <span class="right-align">$120</span>
+            <span class="right-align">120</span>
         </div>
       </div>
         <div class="Order-details">
@@ -347,7 +331,7 @@
             <h3>Delivery distance(m): </h3>
             <span class="right-align">2510</span>
             <h3>Estimated revenue: </h3>
-            <span class="right-align">$151</span>
+            <span class="right-align">50</span>
         </div>
       </div>
         <div class="Order-details">
@@ -369,7 +353,7 @@
             <br><br><br>
             <hr>
             <center><div id="total-price">Total price: $150</div></center>
-    </div></div>
+    </div></div></div>
     <hr>
   </div>
   <div class="footer ">
@@ -378,165 +362,54 @@
   </div>
 </body>
 <script>
-function selectMenuItem(item) {
-  var menuItems = document.getElementsByClassName("menu-item");
-  for (var i = 0; i < menuItems.length; i++) {
-    menuItems[i].classList.remove("selected");
-  }
-  item.classList.add("selected");
-}
-
-function selectCardItem(item) {
-  var cardItems = document.getElementsByClassName("card-item");
-  for (var i = 0; i < cardItems.length; i++) {
-    cardItems[i].classList.remove("selected");
-  }
-  item.classList.add("selected");
-}
-
-function toggleCardItemClick() {
-  var cardItems = document.querySelectorAll(".card-item");
-  var orderDetails = document.querySelectorAll(".Order-details");
-
-  // Remove "selected" class from all card-items
-  for (var j = 0; j < cardItems.length; j++) {
-    cardItems[j].classList.remove("selected");
-  }
-  // Add "selected" class to the clicked card-item
-  this.classList.add("selected");
-
-  // Hide all order-details
-  for (var k = 0; k < orderDetails.length; k++) {
-    orderDetails[k].style.display = "none";
-  }
-
-  // Get the corresponding order-details element and show it
-  var orderDetailsElement = this.nextElementSibling;
-  orderDetailsElement.style.display = "block";
-
-  // Rebind event listeners
-  toggleCreditCardForm(this.parentNode, orderDetailsElement);
-}
-
-// ...
-
-window.addEventListener("load", function() {
-  var cardItems = document.getElementsByClassName("card-item");
-
-  for (var i = 0; i < cardItems.length; i++) {
-    cardItems[i].addEventListener("click", toggleCardItemClick);
-  }
-
-  toggleCreditCardForm(cardItems[0].parentNode, cardItems[0].nextElementSibling); // 调用时传递第一个卡片项的父元素和对应的订单详情元素
-});
-
-function toggleCreditCardForm(cardItem, orderDetails) {
-  var cardItem = this.parentNode;
-  var orderDetails = cardItem.nextElementSibling;
-
-  if (orderDetails.style.display === "none") {
-    orderDetails.style.display = "block";
-  } else {
-    orderDetails.style.display = "none";
-  }
-}
-
-window.addEventListener("load", function() {
-  var cardItems = document.getElementsByClassName("card-item");
-
-  for (var i = 0; i < cardItems.length; i++) {
-    cardItems[i].addEventListener("click", toggleCardItemClick);
-    }
-});
-
-function showOrderDetails(item) {
-  var cardItems = document.querySelectorAll(".card-item");
-  var orderDetails = document.querySelectorAll(".Order-details");
-
-  // 隐藏所有订单详情
-  for (var k = 0; k < orderDetails.length; k++) {
-    orderDetails[k].style.display = "none";
-  }
-
-  // 移除所有卡片项的 "selected" 类
-  for (var j = 0; j < cardItems.length; j++) {
-    cardItems[j].classList.remove("selected");
-  }
-
-  // 添加 "selected" 类到点击的卡片项
-  item.classList.add("selected");
-
-  // 获取对应的订单详情元素并显示它
-  var orderDetailsElement = item.nextElementSibling;
-  orderDetailsElement.style.display = "block";
-}
-
-function SortOrder() {
-  var categoryFilter = document.getElementById("categoryFilter");
-  var ascDescFilter = document.getElementById("AscDescFilter");
-  var cardItems = document.getElementsByClassName("card-item");
-
-  var selectedCategory = categoryFilter.value;
-  var sortOrder = ascDescFilter.value;
-  var sortedItems = Array.from(cardItems);
-
-  sortedItems.sort(function(a, b) {
-    var aData = getOrderData(a, selectedCategory);
-    var bData = getOrderData(b, selectedCategory);
-
-    if (sortOrder === "ASC") {
-      return aData - bData;
-    } else if (sortOrder === "DESC") {
-      return bData - aData;
+    function selectMenuItem(item) {
+      var menuItems = document.getElementsByClassName("menu-item");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
     }
 
-    return 0;
-  });
+    function selectCardItem(item) {
+      var cardItems = document.getElementsByClassName("card-item");
+      for (var i = 0; i < cardItems.length; i++) {
+        cardItems[i].classList.remove("selected");
+      }
+      item.classList.add("selected");
+    }
 
-  var bg = document.querySelector(".bg");
-  for (var i = 0; i < sortedItems.length; i++) {
-    var item = sortedItems[i];
-    item.parentNode.removeChild(item);
-    bg.appendChild(item);
-  }
-
-  // Rebind event listeners
-  toggleCreditCardForm();
-
-// Call selectCardItem and toggleCardItemClick
-if (sortedItems.length > 0) {
-  var firstItem = sortedItems[0];
-  selectCardItem(firstItem);
-  showOrderDetails(firstItem);
-}
-}
-
-window.addEventListener("load", function() {
+    window.addEventListener("load", function() {
   var orderDetails = document.querySelectorAll(".Order-details");
 
   for (var i = 0; i < orderDetails.length; i++) {
     orderDetails[i].style.display = "none";
   }
-
-  toggleCreditCardForm();
-
-  document.getElementById("sortButton").addEventListener("click", SortOrder);
 });
 
-function getOrderData(item, category) {
-  var dataElement = item.querySelector(".container").querySelector(".right-align");
-  var data = dataElement.innerText;
+function toggleCreditCardForm() {
+  var cardItems = document.querySelectorAll(".card-item");
+  var orderDetails = document.querySelectorAll(".Order-details");
 
-  switch (category) {
-    case "Pickup distance":
-      return parseInt(data);
-    case "Delivery distance":
-      return parseInt(data);
-    case "Revenue":
-      return parseFloat(data.replace("$", ""));
-    default:
-      return 0;
+  for (var i = 0; i < cardItems.length; i++) {
+    cardItems[i].addEventListener("click", function() {
+      // Remove "selected" class from all card-items
+      for (var j = 0; j < cardItems.length; j++) {
+        cardItems[j].classList.remove("selected");
+      }
+      // Add "selected" class to the clicked card-item
+      this.classList.add("selected");
+
+      // Hide all order-details
+      for (var k = 0; k < orderDetails.length; k++) {
+        orderDetails[k].style.display = "none";
+      }
+
+      // Get the corresponding order-details element and show it
+      var orderDetailsElement = this.nextElementSibling;
+      orderDetailsElement.style.display = "block";
+    });
   }
 }
+toggleCreditCardForm();
   </script>
 </html>
