@@ -158,12 +158,10 @@
 
         .item-price {
             padding-right: 50px;
-            /* Adjust the padding as per your preference */
         }
 
         .delete-button {
             margin-left: 100px;
-            /* Adjust the margin as per your preference */
         }
 
         .cart {
@@ -211,19 +209,10 @@
         }
 
         .modify-tab {
-            /* width: 30%;
-            position: fixed;
-            top: 100; */
-        }
-
-        .modify-tab {
             width: 30%;
-            /*  position: sticky;
-            */
             top: 0px;
             left: 700px;
             transition: top 0.3s ease-out;
-            /* Add a transition effect */
         }
     </style>
     <title>Menu Management</title>
@@ -231,7 +220,6 @@
 
     <script>
         function searchMenu() {
-            // Declare variables
             var input, filter, menu, items, h3, i, txtValue;
             input = document.getElementById('searchBar');
             filter = input.value.toUpperCase();
@@ -267,7 +255,6 @@
             }
         }
         function openModifyTab(itemName, itemPrice) {
-            // Show the modify tab
             document.getElementById("modifyTab").style.display = "block";
 
             document.getElementById("itemName").value = itemName;
@@ -307,6 +294,9 @@
             <li><a href="registerDelivery.html" id="deliveryRef">
                     <h3>Register Delivery Personnel</h3>
                 </a></li>
+            <li><a href="restaurantOrder.html">
+                    <h3>Order Processing</h3>
+                </a></li>
             <li class="nav-icons">
                 <div>
             <li><a href="RestaurantAccount.html"><img width="30px" src="images/Account.png"></a></li>
@@ -341,13 +331,15 @@
                 <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
                 <h3>Singapore Stir-fried Noodles</h3>
                 <span class="price">$50</span>
-                <button class="modify-item" onclick="openModifyTab('Singapore Stir-fried Noodles', 50)">Modify</button>Enabled
+                <button class="modify-item"
+                    onclick="openModifyTab('Singapore Stir-fried Noodles', 50)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
                 <h3>Stir-fried Beef Noodles</h3>
                 <span class="price">$50</span>
-                <button class="add-to-cart" onclick="openModifyTab('Stir-fried Beef Noodles', 50)">Modify</button>Enabled
+                <button class="add-to-cart"
+                    onclick="openModifyTab('Stir-fried Beef Noodles', 50)">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Stir-fried instant noodles with pork chop.jpg"
