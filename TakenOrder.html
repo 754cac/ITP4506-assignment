@@ -211,16 +211,6 @@
     .right-align {
         display: inline;
     }
-  .DeliveryOrder {
-    display: none; 
-  }
-
-  .startbutton button{
-    margin: 20%;
-    font-size: 120px;
-    width: 400px; 
-    height: 200px; 
-  }
 
   </style>
 <body>
@@ -254,21 +244,21 @@
     </ul>
   </nav>
   <div class="bg">
-    <div class ="startbutton">
-      <center><button onclick="showDeliveryOrder()">Start</button><br></center></div>
     <div class ="DeliveryOrder">
         <div class="order-summary">
           <h1>Order Status<h1>
-        <img width=90% src="images/Process.jpg">
           <hr>
-          <h1>Pick Up Address</h1>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d921.8794489203165!2d114.16757697173702!3d22.447168252564996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e3!4m5!1s0x34040840b0ad234f%3A0xf5ea99d321fa32ce!2z5aSn5Z-U5buj56aP6YGTMTM56Jmf5paw6YeR5a-25Zau6LuK6KGM!3m2!1d22.448010699999998!2d114.1685985!4m3!3m2!1d22.4467034!2d114.1681349!5e0!3m2!1szh-TW!2shk!4v1701324284045!5m2!1szh-TW!2shk" width="500" height="450" style="border:0; margin: 0% 20%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <h1>Delivery Address</h1>
+          <h1>Delivery Address</h1>
       <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d3687.5985829147726!2d114.16420532606001!3d22.44412968766519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d22.4467034!2d114.1681349!4m3!3m2!1d22.4416139!2d114.1658985!5e0!3m2!1szh-TW!2shk!4v1701324402790!5m2!1szh-TW!2shk" width="500" height="450" style="border:0; margin: 0% 20%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
       <center><h2>Estimated revenue</h2><h3>$55</h3></center>
       <hr>
           <center><h3>Order Summary</h3></center>
           <ul id="cart-items">
+            <h3>Customer Name: Yan Yi Hung<br>
+                Contract Number: 6675 0920 
+              </h3>
+              <hr>
             <li><h4>Singapore Stir-fried Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
             <li><h4>Stir-fried Beef Noodles</h4><span>2x</span><span class="item-price">$50</span></li>
           </ul>
@@ -277,11 +267,20 @@
           <center><div id="total-price">Total price: $150</div></center>
   </div>
   <center>
-    <a herf="AcceptOrder.html"><button class="accept">Accept</button></a>
-    <button class="reject">Reject</button>
+    <a herf="TakenOrder.html"><button style="width: 50%; height: 50px; margin: 3%;">Taken food</button></a>
   </center>
 </div>
-  
+<div id="chat-room-container">
+    <div id="chat-room" style="display: flex; flex-direction: column;">
+      <fieldset style="background-color: #c00;"><h3 style="font-size: 20px; color: #e6cbcb;">Yan Yi Hung #00012414</h3><button id="hide-button">_</button></fieldset>
+      <div style="flex-grow: 1;"></div>
+      <div style="display: flex; align-items: center;">
+        <input type="text" id="message-input" placeholder="Type your message">
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+  </div>
+  <button id="toggle-chat-button">Chat</button>
   </div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>
@@ -289,11 +288,16 @@
   </div>
 </body>
 <script>
- function showDeliveryOrder() {
-    var deliveryOrder = document.querySelector('.DeliveryOrder');
-    var startButton = document.querySelector('.startbutton');
-    deliveryOrder.style.display = 'block'; 
-    startButton.style.display = 'none';
-  }
+var hideButton = document.getElementById('hide-button');
+var showButton = document.getElementById('toggle-chat-button');
+var chatRoom = document.getElementById('chat-room');
+
+hideButton.addEventListener('click', function() {
+  chatRoom.style.display = 'none';
+});
+
+showButton.addEventListener('click', function() {
+  chatRoom.style.display = 'flex';
+});
   </script>
 </html>
