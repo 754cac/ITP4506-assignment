@@ -89,13 +89,19 @@
             display: none;
             background-color: blue;
         }
+
+        #deliveryComments {
+            width: 100%;
+            display: none;
+        }
     </style>
-    <title>Menu Management</title>
+    <title>Order Processing</title>
 
     <script>
         function takeOrder(element) {
             element.nextElementSibling.style.display = 'block';
             element.style.display = 'none';
+            element.previousElementSibling.style.display = 'block';
         }
 
         function shipOrder(element) {
@@ -149,6 +155,7 @@
                 X <span class="item">Singapore Stir-fried Noodles</span>
                 $<span class="price">50</span></p>
             <p>Total Price: $<span class="total">100</span></p>
+            <textarea id="deliveryComments" placeholder="Delivery comment to customer"></textarea>
             <button class="take-order" onclick="takeOrder(this)">Take Order</button>
             <button class="ship-order" onclick="shipOrder(this)">Ship Order</button>
         </div>
@@ -159,6 +166,7 @@
             <p><span class="quantity">2</span> X <span class="item">Singapore Stir-fried Noodles</span> $<span
                     class="price">50</span></p>
             <p>Total Price: $<span class="total">100</span></p>
+            <textarea id="deliveryComments" placeholder="Delivery comment to customer"></textarea>
             <button class="take-order" onclick="takeOrder(this)">Take Order</button>
             <button class="ship-order" onclick="shipOrder(this)">Ship Order</button>
         </div>
@@ -169,6 +177,7 @@
             <p><span class="quantity">1</span> X <span class="item">Fried Rice</span> $<span class="price">30</span>
             </p>
             <p>Total Price: $<span class="total">30</span></p>
+            <textarea id="deliveryComments" placeholder="Delivery comment to customer"></textarea>
             <button class="take-order" onclick="takeOrder(this)">Take Order</button>
             <button class="ship-order" onclick="shipOrder(this)">Ship Order</button>
         </div>

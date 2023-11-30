@@ -18,12 +18,6 @@
             margin-top: 0;
         }
 
-        .cart-item-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         .menu {
             display: flex;
             flex-wrap: wrap;
@@ -48,9 +42,6 @@
             width: 55%;
             padding: 20px;
             box-sizing: border-box;
-        }
-
-        .menu {
             background-color: #ac6060;
             border: 10px;
             margin-right: 5%;
@@ -85,15 +76,6 @@
             margin: 10px 0 5px;
         }
 
-        .menu li h3 {
-            margin: 0;
-        }
-
-        .menu li .price {
-            color: #818181;
-        }
-
-
 
         button {
             background-color: #f00;
@@ -105,69 +87,6 @@
 
         button:hover {
             background-color: #c00;
-        }
-
-        .delete-item {
-            position: relative;
-            float: center;
-            top: 0;
-            right: 0;
-            background-color: #f00;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        .quantity-button {
-            background-color: #f00;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            margin: 0 5px;
-        }
-
-        .quantity-button:hover {
-            background-color: #c00;
-        }
-
-        .delete-item:hover {
-            background-color: #c00;
-        }
-
-        .cart-item-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .item-name {
-            white-space: wrap;
-            max-width: 150px;
-        }
-
-        .quantity-button,
-        .item-quantity {
-            margin: auto;
-        }
-
-        .item-quantity {
-            margin: 5px;
-        }
-
-        .item-price {
-            padding-right: 50px;
-        }
-
-        .delete-button {
-            margin-left: 100px;
-        }
-
-        .cart {
-            width: 30%;
-            height: flex;
-            margin-left: 5%;
         }
 
         .whitebg {
@@ -201,18 +120,29 @@
 
         .container {
             display: flex;
+            flex-direction: row;
         }
-
 
         #modifyTab {
-            width: 500px;
+            width: 30%;
+            transition: top 0.3s ease-out;
         }
 
-        .modify-tab {
-            width: 30%;
-            top: 0px;
-            left: 700px;
-            transition: top 0.3s ease-out;
+        #delBtn {
+            background-color: red;
+        }
+
+        #crtBtn {
+            background-color: green;
+        }
+
+        #saveBtn {
+            background-color: yellow;
+        }
+
+        #clrBtn {
+            background-color: white;
+            color: red;
         }
     </style>
     <title>Menu Management</title>
@@ -254,16 +184,16 @@
                 }
             }
         }
-        function openModifyTab(itemName, itemPrice) {
-            document.getElementById("modifyTab").style.display = "block";
-
+        function openModifyTab(itemName, itemPrice, itemDesc) {
             document.getElementById("itemName").value = itemName;
             document.getElementById("itemPrice").value = itemPrice;
+            document.getElementById("itemDetail").value = itemDesc;
         }
 
         function saveChanges() {
             var newName = document.getElementById("itemName").value;
             var newPrice = document.getElementById("itemPrice").value;
+            var newDesc = document.getElementById("itemDesc").value;
             alert("Change saved");
         }
 
@@ -273,6 +203,15 @@
             searchMenu();
             filterCategory();
         }
+        function clearForm() {
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemPrice').value = '';
+            document.getElementById('itemPhoto').value = '';
+            document.getElementById("itemDetail").value = '';
+            document.getElementById('enableItem').checked = true;
+            document.getElementById('disableItem').checked = false;
+        }
+
     </script>
 
 </head>
@@ -330,54 +269,76 @@
             <div class="menu-item">
                 <img src="images/Singapore Stir-fried Noodles.jpg" alt="Singapore Stir-fried Noodles">
                 <h3>Singapore Stir-fried Noodles</h3>
+                <p id="itemDesc">A vibrant dish featuring vermicelli noodles stir-fried with a medley of vegetables,
+                    proteins, and a distinctive curry flavor.</p>
                 <span class="price">$50</span>
                 <button class="modify-item"
-                    onclick="openModifyTab('Singapore Stir-fried Noodles', 50)">Modify</button>Enabled
+                    onclick="openModifyTab('Singapore Stir-fried Noodles', 50,'A vibrant dish featuring vermicelli noodles stir-fried with a medley of vegetables, proteins, and a distinctive curry flavor.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Stir-fried Beef Noodles.jpeg" alt="Stir-fried Beef Noodles">
                 <h3>Stir-fried Beef Noodles</h3>
+                <p id="itemDesc">A hearty and savory dish where tender slices of beef are stir-fried with noodles and a
+                    blend of sauces.
+                </p>
                 <span class="price">$50</span>
                 <button class="add-to-cart"
-                    onclick="openModifyTab('Stir-fried Beef Noodles', 50)">Modify</button>Enabled
+                    onclick="openModifyTab('Stir-fried Beef Noodles', 50,'A hearty and savory dish where tender slices of beef are stir-fried with noodles and a blend of sauces.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Stir-fried instant noodles with pork chop.jpg"
                     alt="Stir-fried instant noodles with pork chop">
                 <h3>Stir-fried instant noodles with pork chop</h3>
+                <p id="itemDesc">A quick and satisfying dish where instant noodles are stir-fried to perfection and
+                    served with a juicy, pan-seared pork chop.</p>
                 <span class="price">$50</span>
                 <button class="add-to-cart"
-                    onclick=" openModifyTab('Stir-fried instant noodles with pork chop', 50)">Modify</button>Enabled
+                    onclick=" openModifyTab('Stir-fried instant noodles with pork chop', 50,'A quick and satisfying dish where instant noodles are stir-fried to perfection and served with a juicy, pan-seared pork chop.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Braised E-Fu Noodles.jpg" alt="Braised E-Fu Noodles">
                 <h3>Braised E-Fu Noodles</h3>
+                <p id="itemDesc">A traditional Cantonese noodle dish, where E-Fu noodles are braised in a rich and
+                    flavorful sauce, often served with mushrooms and green onions.</p>
                 <span class="price">$100</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Braised E-Fu Noodles', 100)">Modify</button>Enabled
+                <button class="add-to-cart"
+                    onclick=" openModifyTab('Braised E-Fu Noodles', 100,'A traditional Cantonese noodle dish, where E-Fu noodles are braised in a rich and flavorful sauce, often served with mushrooms and green onions.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Western Fried Rice.jpg" alt="Western Fried Rice">
                 <h3>Western Fried Rice</h3>
+                <p id="itemDesc">A fusion dish where rice is stir-fried with a variety of Western ingredients like ham,
+                    peas, and bell peppers, offering a unique twist on the classic fried rice.</p>
                 <span class="price">$45</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Western Fried Rice', 45)">Modify</button>Enabled
+                <button class="add-to-cart"
+                    onclick=" openModifyTab('Western Fried Rice', 45,'A fusion dish where rice is stir-fried with a variety of Western ingredients like ham, peas, and bell peppers, offering a unique twist on the classic fried rice.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/EEL Fried Rice.jpg" alt="EEL Fried Rice">
                 <h3>EEL Fried Rice</h3>
+                <p id="itemDesc">A luxurious dish featuring tender, flavorful eel stir-fried with rice, often
+                    accompanied by vegetables and a savory sauce.</p>
                 <span class="price">$45</span>
-                <button class="add-to-cart" onclick=" openModifyTab('EEL Fried Rice', 45)">Modify</button>Enabled
+                <button class="add-to-cart"
+                    onclick=" openModifyTab('EEL Fried Rice', 45,'A luxurious dish featuring tender, flavorful eel stir-fried with rice, often accompanied by vegetables and a savory sauce.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Hokkien Fried Rice.jpg" alt="Item 2">
                 <h3>Hokkien Fried Rice</h3>
+                <p id="itemDesc">A popular dish from the Fujian province, featuring a rich and flavorful stir-fry of
+                    rice, prawns, pork, and a variety of vegetables.</p>
                 <span class="price">$55</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Hokkien Fried Rice', 55)">Modify</button>Enabled
+                <button class="add-to-cart"
+                    onclick=" openModifyTab('Hokkien Fried Rice', 55,'A popular dish from the Fujian province, featuring a rich and flavorful stir-fry of rice, prawns, pork, and a variety of vegetables.')">Modify</button>Enabled
             </div><br>
             <div class="menu-item">
                 <img src="images/Yangzhou Fried Rice.jpeg" alt="Item 2">
                 <h3>Yangzhou Fried Rice</h3>
+                <p id="itemDesc">A classic Chinese fried rice dish, known for its colorful presentation with ingredients
+                    like shrimp, ham, peas, and carrots.</p>
                 <span class="price">$65</span>
-                <button class="add-to-cart" onclick=" openModifyTab('Yangzhou Fried Rice', 65)">Modify</button>Enabled
+                <button class="add-to-cart"
+                    onclick=" openModifyTab('Yangzhou Fried Rice', 65,'A classic Chinese fried rice dish, known for its colorful presentation with ingredients like shrimp, ham, peas, and carrots.')">Modify</button>Enabled
             </div><br>
         </div>
         <div class="modify-tab" id="modifyTab">
@@ -385,6 +346,7 @@
                 <h4>Modify Menu Item</h4>
                 Name: <input type="text" id="itemName"><br>
                 Price: <input type="text" id="itemPrice"><br>
+                Description: <textarea id="itemDetail"></textarea><br>
                 Photo: <input type="file" id="itemPhoto"><br>
                 <div style="display: inline-block;">
                     Status: <input type="radio" id="enableItem" name="itemStatus" value="enable" checked>
@@ -392,8 +354,10 @@
                     <input type="radio" id="disableItem" name="itemStatus" value="disable">
                     <label for="disableItem">Disable</label>
                 </div>
-                <input type="button" value="Save Changes" onclick="saveChanges()">
-                <input type="button" value="Delete Item" onclick="confirm('Please confirm delete')">
+                <input type="button" id="saveBtn" value="Save Changes" onclick="saveChanges()">
+                <input type="button" id="delBtn" value="Delete Item" onclick="confirm('Please confirm delete')">
+                <input type="button" id="crtBtn" value="Created Item" onclick="alert('Item created')">
+                <input type="button" id="clrBtn" value="Clear" onclick="clearForm()">
             </form>
         </div>
     </div>
