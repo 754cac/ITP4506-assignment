@@ -244,30 +244,22 @@
     </ul>
   </nav>
   <div class="bg">
+    <fieldset><legend><h1>Confirm deliverd</h1></legend>
+        <h3>Payment status : Paid (Credit card)</h3>
+        Upload you deliverd food photo here.<center><input type="file"></input></center></h3>
+    </fieldset>
+
+
     <div class ="DeliveryOrder">
         <div class="order-summary">
           <h1>Order ID : 000-00001111</h1>
-          <table>
-            <tr>
-              <td>Order Date :</td><td>27/10/2023 21:20:53</td>
-            </tr>
-            <tr>
-              <td>Accepted :</td><td>27/10/2023 21:25:31</td>
-            </tr>
-            </table>
-          <hr>
-          <h1>Order Status</h1>
-        <img width="70%" height="450"style="margin: 0% 15%;" src="images/Process.jpg">
-        <center><h2>Estimated time :</h2> 10 mins</center>
-          <hr>
-          <center><h1>Pick Up Address</h1>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d921.8794489203165!2d114.16757697173702!3d22.447168252564996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e3!4m5!1s0x34040840b0ad234f%3A0xf5ea99d321fa32ce!2z5aSn5Z-U5buj56aP6YGTMTM56Jmf5paw6YeR5a-25Zau6LuK6KGM!3m2!1d22.448010699999998!2d114.1685985!4m3!3m2!1d22.4467034!2d114.1681349!5e0!3m2!1szh-TW!2shk!4v1701324284045!5m2!1szh-TW!2shk" width="70%" height="450" style="border:0; margin: 0% 15%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></center>
+          
+      <center><h2>Estimated revenue</h2><h3>$55</h3></center>
       <hr>
           <center><h3>Order Summary</h3></center>
           <ul id="cart-items">
             <h3>Customer Name: Yan Yi Hung<br>
-                Contract Number: 6675 0920<br>
-                Payment Status: Paid
+                Contract Number: 6675 0920 <br>
               </h3>
               <hr>
             <li><h4>Singapore Stir-fried Noodles</h4><span>1x</span><span class="item-price">$50</span></li>
@@ -278,20 +270,9 @@
           <center><div id="total-price">Total price: $150</div></center>
   </div>
   <center>
-    <a href="TakenOrder.html"><button style="width: 50%; height: 50px; margin: 3%;">Taked food</button></a>
+    <a href="DeliverdConfirm.html"><button style="width: 50%; height: 50px; margin: 3%;">Confirm</button></a>
   </center>
 </div>
-<div id="chat-room-container">
-    <div id="chat-room" style="display: flex; flex-direction: column;">
-      <fieldset style="background-color: #c00;"><h3 style="font-size: 20px; color: #e6cbcb;">Yan Yi Hung #00012414</h3><button id="hide-button">_</button></fieldset>
-      <div style="flex-grow: 1;"></div>
-      <div style="display: flex; align-items: center;">
-        <input type="text" id="message-input" placeholder="Type your message">
-        <button id="send-button">Send</button>
-      </div>
-    </div>
-  </div>
-  <button id="toggle-chat-button">Chat</button>
   </div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>
@@ -299,16 +280,6 @@
   </div>
 </body>
 <script>
-var hideButton = document.getElementById('hide-button');
-var showButton = document.getElementById('toggle-chat-button');
-var chatRoom = document.getElementById('chat-room');
 
-hideButton.addEventListener('click', function() {
-  chatRoom.style.display = 'none';
-});
-
-showButton.addEventListener('click', function() {
-  chatRoom.style.display = 'flex';
-});
   </script>
 </html>

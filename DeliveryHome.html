@@ -7,6 +7,220 @@
   <link rel="stylesheet" type="text/css" href="register.css">
   <title>Main page</title>
 </head>
+<style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .order-details {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .order-summary {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .delivery-address {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 90%;
+      padding: 5px;
+    }
+
+    .credit-card-form {
+      display: none;
+    }
+
+  .order-summary {
+    background-color: #e6cbcb;
+    padding: 40px;
+    box-sizing: border-box;
+    position: absolute;
+  }
+
+  .order-summary h2 {
+     margin-top: 0;
+  }
+
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+  }
+
+  .order-summary li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+    button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c00;
+    }
+    
+    .menu-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .menu-item:hover{
+      background: #8f2e2e;
+    }
+
+    .menu-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .card-item {
+      border: 0px solid #e0d35e;
+	    border-radius: 5px;
+	    background: #ffaaaa;
+	    padding: 10px 10px 10px 10px;
+	    margin: 5px 5px 5px 5px;
+	    width: 90%;
+	    float:center;
+    }
+
+    .card-item:hover{
+      background: #8f2e2e;
+    }
+
+    .card-item.selected {
+      background: rgb(160, 60, 60);
+      color: #fff;
+    }
+    .delivery-address {
+      flex: 1;
+      height: 590px; 
+      overflow-y: scroll;
+      position: relative;
+      margin-left: 5px;
+    }
+    
+    .cvv {
+      margin-right: 30px;
+      width: 0px;
+      flex: 1;
+    }
+
+    .pinkbg{
+    background-color: #b36c6c;
+  }
+
+    .expiration-date{
+      width: 70px;
+      flex: 1;
+    }
+
+  .input-container {
+    display: flex;
+  }
+
+  .input-container input {
+    flex: 1;
+    margin-right: 0px;
+  }
+
+  .order-summary {
+      background-color: #e6cbcb;
+      padding: 0px;
+      margin: 0% 15%;
+      text-align: left;
+      width: 65%;
+      box-sizing: border-box;
+      position: relative; 
+    }
+
+  .order-summary h2 {
+      margin-top: 0;
+    }
+
+    .order-summary ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; 
+    }
+
+    .order-summary li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    #searchBar {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 34px;
+            vertical-align: top;
+        }
+
+        form {
+            width: auto;
+        }
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .container h3 {
+        margin: 0px 5%;
+    }
+
+    .right-align {
+        display: inline;
+    }
+  .DeliveryOrder {
+    display: none; 
+  }
+
+  .startbutton button{
+    margin: 20%;
+    font-size: 50px;
+    width: 400px; 
+    height: 200px; 
+  }
+</style>
 
 <body>
   <header>
@@ -39,7 +253,11 @@
     </ul>
   </nav>
   <div class="bg">
-    11
+    <br>
+    <h1>Hi! Chan Tai Man</h1>
+    <hr>
+    <div class ="startbutton">
+      <center><a href="DeliveryOrder.html"><button>Take Order now</button></a></center></div>
   </div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>

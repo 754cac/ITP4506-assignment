@@ -188,7 +188,14 @@
     .right-align {
         display: inline;
     }
+    td {
+      text-align: center;
+    }
 
+    table {
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
   </style>
 <body>
   <header>
@@ -209,7 +216,7 @@
         </a></li>
       <li class="nav-icons">
         <div>
-        <li><a href="DeliveryAccoun廿.html"><img width="50px" src="images/Account.png"></a></li>
+        <li><a href="DeliveryAccount.html"><img width="50px" src="images/Account.png"></a></li>
         </div>
         <div>
         <li><a href="login.html"><img width="100px" src="images/LOGOUT.png"></a></li>
@@ -225,10 +232,34 @@
       <h1>--- Order History ---</h1>
   </center>
   <hr>
+  <h2><center>October</center></h2>
+  <center><table>
+    <tr>
+      <th>Total Order</th>
+      <th>Total revenue</th>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>$180</td>
+    </tr>
+  </table></center>
   <div class="card-items-container">
   <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
       <h2>Order ID : 000-00001111</h2>
-      Order Date : 27/10/2023 21:20:53<br><br>
+      <table>
+        <tr>
+          <td>Order Date :</td><td>27/10/2023 21:20:53</td>
+        </tr>
+        <tr>
+          <td>Accepted :</td><td>27/10/2023 21:25:31</td>
+        </tr>
+        <tr>
+          <td>Taked Food:</td><td>27/10/2023 21:34:52</td>
+        </tr>
+        <tr>
+          <td>Delivered :</td><td>27/10/2023 21:50:21</td>
+        </tr>
+      </table>
       <div class="container">
           <h3>Pickup distance(m):</h3>
           <span class="right-align">550</span>
@@ -264,8 +295,22 @@
       </div>
   <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
       
+    
     <h2>Order ID : 000-00992211</h2>
-      Order Date : 01/10/2023 13:20:05<br><br>
+    <table>
+      <tr>
+        <td>Order Date :</td><td>01/10/2023 13:20:05</td>
+      </tr>
+      <tr>
+        <td>Accepted :</td><td>01/10/2023 13:24:59</td>
+      </tr>
+      <tr>
+        <td>Taked Food:</td><td>01/10/2023 13:40:11</td>
+      </tr>
+      <tr>
+        <td>Delivered :</td><td>01/10/2023 14:05:17</td>
+      </tr>
+    </table>
       <div class="container">
           <h3>Pickup distance(m):</h3>
           <span class="right-align">1200</span>
@@ -298,10 +343,35 @@
           <center><div id="total-price">Total price: $300</div></center>
         </div>
       </div>
+      <hr>
+      <h2><center>September</center></h2>
+      <center><table>
+        <tr>
+          <th>Total Order</th>
+          <th>Total revenue</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>$151</td>
+        </tr>
+      </table></center>
   <div class="card-item" onclick="selectCardItem(this);toggleCreditCardForm()">
       
     <h2>Order ID : 000-00101132</h2>
-      Order Date : 18/09/2023 18:10:19<br><br>
+    <table>
+      <tr>
+        <td>Order Date :</td><td>18/09/2023 18:10:19</td>
+      </tr>
+      <tr>
+        <td>Accepted :</td><td>18/09/2023 18:20:04</td>
+      </tr>
+      <tr>
+        <td>Taked Food:</td><td>18/09/2023 18:40:48</td>
+      </tr>
+      <tr>
+        <td>Delivered :</td><td>18/09/2023 19:10:27</td>
+      </tr>
+    </table>
       <div class="container">
           <h3>Pickup distance(m):</h3>
           <span class="right-align">1800</span>
@@ -332,6 +402,7 @@
           <center><div id="total-price">Total price: $150</div></center>
   </div></div></div>
   <hr>
+  <center><h2>Notice</h2>Your record just keep in 3 months.</center>
   </div>
   <div class="footer ">
     <p>Copyright @2023 | Yummy Restaurant</p>
