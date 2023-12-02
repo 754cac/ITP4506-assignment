@@ -24,6 +24,18 @@ form {
     border-radius: 5px;
 }
 
+button {
+    background-color: rgb(82, 4, 4);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c00;
+}
+
 
 .checkbox-container {
     display: flex;
