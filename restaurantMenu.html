@@ -241,10 +241,10 @@
                 </a></li>
             <li class="nav-icons">
                 <div>
-            <li><a href="RestaurantAccount.html"><img width="30px" src="images/Account.png"></a></li>
+            <li><a href="RestaurantAccount.html"><img width="30px" src="images/Account.png" alt="Account"></a></li>
             </div>
             <div>
-                <li><a href="login.html"><img width="60px" src="images/LOGOUT.png"></a></li>
+                <li><a href="login.html"><img width="60px" src="images/LOGOUT.png" alt="Logout"></a></li>
             </div>
             </li>
             <li>
@@ -256,6 +256,7 @@
     <div class="whitebg">
         <center>
             <div class="filterBar">
+                <label for="searchBar">Search:</label>
                 <input type="text" id="searchBar" onkeyup="searchMenu()" placeholder="Search for menu items...">
                 <select id="categoryFilter" onchange="filterCategory()">
                     <option value="">All Categories</option>
@@ -347,10 +348,16 @@
         <div class="modify-tab" id="modifyTab">
             <form id="modifyForm">
                 <h4>Modify Menu Item</h4>
-                Name: <input type="text" id="itemName"><br>
-                Price: <input type="text" id="itemPrice"><br>
-                Description: <textarea id="itemDetail"></textarea><br>
-                Photo: <input type="file" id="itemPhoto"><br>
+                <label for="itemName"> Name: </label>
+                <input type="text" id="itemName"><br>
+                <label for="itemPrice">Price: </label>
+                <input type="text" id="itemPrice"><br>
+                <label for="itemDetail">Description: </label>
+                <textarea id="itemDetail"></textarea><br>
+                <label for="itemCat">Categories: </label>
+                <input type="text" id="itemCat"><br>
+                <label for="itemPhoto">Photo: </label>
+                <input type="file" id="itemPhoto"><br>
                 <div style="display: inline-block;">
                     Status: <input type="radio" id="enableItem" name="itemStatus" value="enable" checked>
                     <label for="enableItem">Enable</label>
