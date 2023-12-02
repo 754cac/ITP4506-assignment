@@ -137,10 +137,10 @@
                 </a></li>
             <li class="nav-icons">
                 <div>
-            <li><a href="RestaurantAccount.html"><img width="30px" src="images/Account.png"></a></li>
+            <li><a href="RestaurantAccount.html"><img width="30px" src="images/Account.png" alt="Account"></a></li>
             </div>
             <div>
-                <li><a href="login.html"><img width="60px" src="images/LOGOUT.png"></a></li>
+                <li><a href="login.html"><img width="60px" src="images/LOGOUT.png" alt="Logout"></a></li>
             </div>
             </li>
             <li>
@@ -158,7 +158,9 @@
                 X <span class="item">Singapore Stir-fried Noodles</span>
                 $<span class="price">50</span></p>
             <p>Total Price: $<span class="total">100</span></p>
-            <textarea id="deliveryComments" placeholder="Delivery comment to customer"></textarea>
+            <label for="deliveryComments1">Comments</label>
+            <textarea id="deliveryComments1" class="deliveryComments"
+                placeholder="Delivery comment to customer"></textarea>
             <button class="take-order" onclick="takeOrder(this)">Take Order</button>
             <button class="ship-order" onclick="shipOrder(this)">Ship Order</button>
         </div>
@@ -169,7 +171,9 @@
             <p><span class="quantity">2</span> X <span class="item">Singapore Stir-fried Noodles</span> $<span
                     class="price">50</span></p>
             <p>Total Price: $<span class="total">100</span></p>
-            <textarea id="deliveryComments" placeholder="Delivery comment to customer"></textarea>
+            <label for="deliveryComments2">Comments</label>
+            <textarea id="deliveryComments2" class="deliveryComments"
+                placeholder="Delivery comment to customer"></textarea>
             <button class="take-order" onclick="takeOrder(this)">Take Order</button>
             <button class="ship-order" onclick="shipOrder(this)">Ship Order</button>
         </div>
@@ -180,7 +184,9 @@
             <p><span class="quantity">1</span> X <span class="item">Fried Rice</span> $<span class="price">30</span>
             </p>
             <p>Total Price: $<span class="total">30</span></p>
-            <textarea id="deliveryComments" placeholder="Delivery comment to customer"></textarea>
+            <label for="deliveryComments3">Comments</label>
+            <textarea id="deliveryComments3" class="deliveryComments"
+                placeholder="Delivery comment to customer"></textarea>
             <button class="take-order" onclick="takeOrder(this)">Take Order</button>
             <button class="ship-order" onclick="shipOrder(this)">Ship Order</button>
         </div>
